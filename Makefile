@@ -14,5 +14,5 @@ include ../../Makefile.common
 
 
 install: $(proj)
-	cp $(proj) $(dist) ~/public_html/resume
+	cp $(proj) $(dist) ~/WWW/onerussian/resume
 
