@@ -1,4 +1,4 @@
-proj=resume.ps resume.pdf resume.html resume.txt
+proj=resume.ps resume.pdf resume.html resume.txt resume.tex
 trash+= $(proj:.ps={.bbl,.blg,.dvi,.idx,.ilg,.ind,.toc,.pdf,.aux,.out,.log}) 
 
 include ../../Makefile.common
