@@ -1,8 +1,8 @@
-proj=resume.ps resume.pdf resume.html resume.txt 
-trash+= $(proj:.ps={.bbl,.blg,.dvi,.idx,.ilg,.ind,.toc,.pdf,.aux,.out,.log}) 
+proj=resume.ps resume.pdf resume.html resume.txt
+trash+= $(proj:.ps={.bbl,.blg,.dvi,.idx,.ilg,.ind,.toc,.pdf,.aux,.out,.log})
 
 #stuff to install also
-dist=resume.tex ltoh.pl ltoh.specs res.cls 
+dist=resume.tex ltoh.pl ltoh.specs res.cls
 
 include ../../Makefile.common
 
@@ -14,5 +14,5 @@ include ../../Makefile.common
 
 
 install: $(proj)
-	cp $(proj) $(dist) ~/WWW/onerussian/resume
+	cp $(proj) $(dist) ~/www/resume
 
