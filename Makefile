@@ -8,7 +8,8 @@ include ../../Makefile.common
 
 %.html: %.tex
 	perl ltoh.pl $<
-
+	perl -pi -e 's/@/{a}/g' resume.html
+	
 %.txt: %.html
 	lynx --dump $< > $@
 
