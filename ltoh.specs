@@ -28,7 +28,7 @@ htmlfile_spec := $BASE.html
 
 :{}	:\name:<BIG><B>:</><HR><DIV ALIGN=RIGHT><TABLE cellpadding=0 cellspacing=0>:
 :{}	:\address:<TR><TD>:</>:
-:{}	:\employer:<table width=100% cellpadding=0 cellspacing=0><TR><TD>:</TD>:
+:{}	:\employer:<table width=100% cellpadding=0 cellspacing=0><TR><TD class="date">:</TD>:
 :{}	:\title:<TD ALIGN=RIGHT>:</TD></TR>:
 :{}	:\location:<TR><TD>:</TD>:
 :{}	:\dates:<TD ALIGN=RIGHT>:</TD></TR></table>:
@@ -36,6 +36,15 @@ htmlfile_spec := $BASE.html
 #:{}     :\~:~::
 :{}	:\textsc:<EM>:</>:
 :{}	:\emph:<EM>:</>:
+
+:{}	:\mauthors:::
+:{}	:\mtitle:"<EM>:</EM>":
+:{}	:\mwhere:::
+
+:{}	:\mplace:"<STRONG>:</STRONG>":
+:{}	:\wdescription:<SMALL>(:)</SMALL>:
+
+:{2}	:\href#1#2:<A HREF="#2">#2</A>::
 
 :{}     :\rqimage:<img src=":">:
 ,{2}    ,\rqhttp#1#2,<a href="#2"> #1 </a>,,
@@ -53,12 +62,15 @@ htmlfile_spec := $BASE.html
 :{}	:\textsf:<EM>:</>:
 :{}	:\underline:<EM>:</>:
 :{}	:\section:<HR></TD></TR><TR><TD VALIGN=TOP>:</TD><TD>:
+#:{}	:\section:<HR></TD></TR><TR><TD VALIGN=TOP>:</TD><TD>:
+#:{}	:\section:<TR><TD VALIGN=TOP>:</TD></TR>:
 :{}	:\centerline:<P align=center>:</>:
-:{}	:\footnote:<font size=-1>[:]</>:
+:{}	:\footnote: <font size=-1>[:]</> :
 :{}	:\ensuremath:<IT>:</>:
 :{2}	:\renewcommand#1#2:::
+:{2}	:\newcommand#1#2:::
 :{1}	:\makebox[^{]*#1:#1::
-:b/e	:\begin{document}:<CENTER><TABLE BGCOLOR=WHITE BORDER=0 WIDTH='100%'><TR><TD>:</TD></TR></TABLE></CENTER>:
+:b/e	:\begin{document}:<CENTER>:</CENTER>:
 :b/e	:\begin{resume}:</TABLE><TABLE WIDTH=100%><TR><TD></TD><TD>:</TD></TR></TABLE>:
 :b/e	:\begin{format}:<SCRIPT language="TRUE_COMMENT">:</>:
 :b/e	:\begin{position}:::
@@ -70,7 +82,9 @@ htmlfile_spec := $BASE.html
 :b/e	:\begin{tabular}:\begin{tabular}:\end{tabular}:
 :b/e	:\begin{quote}:<BLOCKQUOTE>:</>:
 :b/e	:\begin{verse}:<BLOCKQUOTE>:</>:
-@comm	@\documentstyle[^\n]*@<CENTER><H1>Don't print this page!</H1>See my resume page's <A HREF="http://www.syntaxerr.org/~daniell/resume/">PostScript and PDF formats</A>.</CENTER>@@
+:b/e	:\begin{multicols}:<multicol cols=2>:</>:
+
+@comm	@\documentstyle[^\n]*@<CENTER><H1>Don't print this page!</H1>See my resume page's <A HREF="http://www.onerussian.com/resume.phtml">PostScript and PDF formats</A>.</CENTER>@@
 :comm	:\oddsidemargin[^\n]*:::
 :comm	:\evensidemargin[^\n]*:::
 :comm	:\textwidth[^\n]*:::
@@ -101,12 +115,15 @@ htmlfile_spec := $BASE.html
 :comm	:\raggedleft:::
 :comm	:\vspace[*]?\{[^\}]+\}:::
 :comm	:\hspace[*]?\{[^\}]+\}:::
-:comm	:\usepackage\{[^\}]+\}:::
+#:comm	:\usepackage[*]?\{[^\}]+\}:::
+:comm	:\usepackage[^ \t\n]+:::
 :comm	:\documentclass[^ \t\n]+:::
 :comm	:\thispagestyle{.*}:::
 :comm	:\pagestyle{.*}:::
 :comm	:\newpage:::
 :comm	:\vfill:::
+
+:comm  :\newline:<br/>::
 
 #
 # End specifications for standard Latex command 
