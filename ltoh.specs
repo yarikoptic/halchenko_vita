@@ -1,0 +1,125 @@
+# NOT STANDARD; mostly for use with default resume style of res.sty
+
+# Comments begin with optional whitespace followed by a '#', ';', or a '!'
+# We recommend you begin all comments with a '#'.
+# Each line contains:
+#
+
+title	:= "DPL's Resume"
+author  := Daniel P. Lamblin
+login   := daniell
+email   := daniell@slithy.toves.net
+url     := http://www.syntaxerr.org/~daniell/
+htmlfile_spec := $BASE.html
+
+# Don't monkey with (don't change) the following variable.
+# It sets how much debugging information is printed out.
+=***= warnlevel := 6
+
+# The general structure of a specification is
+# :type   :latex-macro:html-begin-spec-start:html-end-spec:reserved/not-used
+#
+# type is one of the following:
+#      {} = brace delimited command, \textbf{...}
+#     {N} = command, with brace delimited N arguments, \swap{xxx}{yyy}
+#    comm = command without any parameters
+#     b/e = begin/end delimited command \begin{xxx} ... \end{xxx}
+#
+
+:{}	:\name:<BIG><B>:</><HR><DIV ALIGN=RIGHT><TABLE cellpadding=0 cellspacing=0>:
+:{}	:\address:<TR><TD>:</>:
+:{}	:\employer:<table width=100% cellpadding=0 cellspacing=0><TR><TD>:</TD>:
+:{}	:\title:<TD ALIGN=RIGHT>:</TD></TR>:
+:{}	:\location:<TR><TD>:</TD>:
+:{}	:\dates:<TD ALIGN=RIGHT>:</TD></TR></table>:
+:{}	:\body:::
+#:{}     :\~:~::
+:{}	:\textsc:<EM>:</>:
+:{}	:\emph:<EM>:</>:
+
+:{}     :\rqimage:<img src=":">:
+,{2}    ,\rqhttp#1#2,<a href="#2"> #1 </a>,,
+,{2}    ,\rqhttpx#1#2,<a href="http://#2"> #1 </a>,,
++{2}    +\rqftp#1#2+<a href="ftp://#2">#1</a>++
+!{2}    !\rqhlink#1#2!<a href="#2">#1</a>!!
+!{2}    !\rqemail#1#2!<a href="mailto:#2">#1</a>!!
+
+
+:{}     :\textbf:<STRONG>:</>:
+:{}	:\textsl:<EM>:</>:
+:{}	:\textem:<EM>:</>:
+:{}	:\textit:<EM>:</>:
+:{}	:\texttt:<SAMP>:</>:
+:{}	:\textsf:<EM>:</>:
+:{}	:\underline:<EM>:</>:
+:{}	:\section:<HR></TD></TR><TR><TD VALIGN=TOP>:</TD><TD>:
+:{}	:\centerline:<P align=center>:</>:
+:{}	:\footnote:<font size=-1>[:]</>:
+:{}	:\ensuremath:<IT>:</>:
+:{2}	:\renewcommand#1#2:::
+:{1}	:\makebox[^{]*#1:#1::
+:b/e	:\begin{document}:<CENTER><TABLE BGCOLOR=WHITE BORDER=0 WIDTH='100%'><TR><TD>:</TD></TR></TABLE></CENTER>:
+:b/e	:\begin{resume}:</TABLE><TABLE WIDTH=100%><TR><TD></TD><TD>:</TD></TR></TABLE>:
+:b/e	:\begin{format}:<SCRIPT language="TRUE_COMMENT">:</>:
+:b/e	:\begin{position}:::
+:b/e	:\begin{center}:<DIV ALIGN=center>:</>:
+:b/e	:\begin{itemize}:<UL>:</>:
+:b/e	:\begin{enumerate}:<OL>:</>:
+:b/e	:\begin{description}:<DL>:</>:
+:b/e	:\begin{multques}(\{[^\}]*\})*:<OL>:</>:
+:b/e	:\begin{tabular}:\begin{tabular}:\end{tabular}:
+:b/e	:\begin{quote}:<BLOCKQUOTE>:</>:
+:b/e	:\begin{verse}:<BLOCKQUOTE>:</>:
+@comm	@\documentstyle[^\n]*@<CENTER><H1>Don't print this page!</H1>See my resume page's <A HREF="http://www.syntaxerr.org/~daniell/resume/">PostScript and PDF formats</A>.</CENTER>@@
+:comm	:\oddsidemargin[^\n]*:::
+:comm	:\evensidemargin[^\n]*:::
+:comm	:\textwidth[^\n]*:::
+:comm	:\Cplusplus:C++::
+:comm	:\~[^ \t\n]*:~::
+:comm	:\ldots:...::
+:comm	:\par:<p>::
+:comm	:\LaTeX[^ \t\n]*:LaTeX::
+:comm	:\qquad:::
+@comm	@\longrightarrow@ ===&gt; @@
+:comm	:\TeX[^ \t\n]*:TeX::
+:comm	:\backslash:@BS@::
+:comm	:\hfill:::
+:comm	:\hrule:<hr>::
+:comm	:\vneg:::
+:comm	:\item([^]]+\])?:<li><strong>$1</strong>::
+:comm	:\def[^\n]+:::
+:comm	:\small:::
+:comm	:\normalsize:::
+:comm	:\footnotesize:::
+:comm	:\large:::
+:comm	:\Large:::
+:comm	:\parindent[^\n]+:::
+:comm	:\noindent[^\n]+:::
+:comm	:\setcounter[^ \t\n]*:::
+:comm	:\addtocounter[^ \t\n]*:::
+:comm	:\raggedright:::
+:comm	:\raggedleft:::
+:comm	:\vspace[*]?\{[^\}]+\}:::
+:comm	:\hspace[*]?\{[^\}]+\}:::
+:comm	:\usepackage\{[^\}]+\}:::
+:comm	:\documentclass[^ \t\n]+:::
+:comm	:\thispagestyle{.*}:::
+:comm	:\pagestyle{.*}:::
+:comm	:\newpage:::
+:comm	:\vfill:::
+
+#
+# End specifications for standard Latex command 
+#
+
+#
+# Also, see the file rq-ltoh.specs for more examples.
+#
+
+# everything after =***= endfile =***= is ignored.
+# =***= starts a 
+
+=***= endfile =***=
+
+this stuff is all ignored.
+
