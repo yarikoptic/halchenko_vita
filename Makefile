@@ -9,10 +9,10 @@ include ../../Makefile.common
 %.html: %.tex
 	perl ltoh.pl $<
 	perl -pi -e 's/@/{a}/g' resume.html
-	
+
 %.txt: %.html
 	lynx --dump $< > $@
 
 
 install: $(proj)
-	cp $(proj) $(dist) ~/www/resume
+	scp $(proj) $(dist) washoe.rutgers.edu:www/resume
