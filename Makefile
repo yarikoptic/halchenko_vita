@@ -1,4 +1,5 @@
-proj=resume.ps resume.ps.gz resume.pdf resume.html resume.txt resume.djvu
+proj=resume.ps resume.ps.gz resume.pdf resume.html resume.txt
+#resume.djvu
 trash+= $(proj:.ps={.bbl,.blg,.dvi,.idx,.ilg,.ind,.toc,.pdf,.aux,.out,.log})
 
 #stuff to install also
