@@ -5,6 +5,10 @@ trash+= $(proj:.ps={.bbl,.blg,.dvi,.idx,.ilg,.ind,.toc,.pdf,.aux,.out,.log})
 #stuff to install also
 dist=resume.tex ltoh.pl ltoh.specs res.cls
 
+%.txt: %.html
+	lynx --dump $< >| $@
+
+
 include ../../Makefile.common
 
 %.tex: Makefile
@@ -19,9 +23,6 @@ include ../../Makefile.common
 	sed -e 's/"\([^"]*\)@/"mailto:\1{a}/g' \
 		-e 's/>\([^>]*\)@/>\1{a}/g' $^ \
 	 >| $@
-
-%.txt: %.html
-	lynx --dump $< >| $@
 
 .PHONY: install
 install: $(proj)
