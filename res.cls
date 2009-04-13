@@ -553,6 +553,7 @@
 %
 
 \def\employer#1{\def\@employer{\print@employer{{\small {\bf #1}}}}}
+\def\eurl#1{\def\@eurl{\print@eurl{{\small {\url{#1}}}}}}
 \def\location#1{\def\@location{\print@location{{\small #1}}}}
 \def\dates#1{\def\@dates{\print@dates{{\bf #1}}}}
 \def\title#1{\def\@title{\print@title{{\it #1}}}}
@@ -626,6 +627,9 @@
   \def\employer##1{\advance\c@numberofcolumns 1
 		   \@format{employer}{##1}
 		   \append@tabular@text{employer}}
+  \def\eurl##1{\advance\c@numberofcolumns 1
+		   \@format{eurl}{##1}
+		   \append@tabular@text{eurl}}
   \def\location##1{\advance\c@numberofcolumns 1
 		   \@format{location}{##1}
 		   \append@tabular@text{location}}
@@ -785,7 +789,7 @@
 \parskip \baselineskip
 \setcounter{secnumdepth}{0}
 \def\@listI{\leftmargin\leftmargini
-\topsep 0pt 
+\topsep 0pt
 \parskip 0pt
 \partopsep 2pt plus 2pt
 \parsep 2pt plus 2pt
@@ -794,7 +798,7 @@
 \pagestyle{empty}  % don't want page numbers
 
 \begin{format}
-\title{l}\employer{r}\\
+\title{l}\employer{r}\eurl{r}\\
 \location{l}\dates{r}\\
 \body\\
 \end{format}
