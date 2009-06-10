@@ -9,7 +9,9 @@ dist=resume.tex ltoh.pl ltoh.specs res.cls
 	lynx --dump $< >| $@
 
 
-include ../../Makefile.common
+include ../common/Makefile.common
+
+all:: $(proj)
 
 %.tex: Makefile
 
