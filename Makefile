@@ -28,7 +28,7 @@ all:: $(proj)
 
 .PHONY: install
 install: $(proj)
-	scp $(proj) $(dist) washoe.rutgers.edu:www/resume
+	scp $(proj) $(dist) www.onerussian.com:www/resume
 
 clean::
 	rm -f *.u.{html,tex}
