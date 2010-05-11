@@ -554,7 +554,7 @@
 
 \def\employer#1{\def\@employer{\print@employer{{\small {\bf #1}}}}}
 \def\eurl#1{\def\@eurl{\print@eurl{{\small {\url{#1}}}}}}
-\def\location#1{\def\@location{\print@location{{\small #1}}}}
+\def\location#1{\def\@location{\print@location{{\small #1}}\vspace{2em}}}
 \def\dates#1{\def\@dates{\print@dates{{\bf #1}}}}
 \def\title#1{\def\@title{\print@title{{\it #1}}}}
 
