@@ -15,7 +15,7 @@ all:: $(proj)
 
 %.tex: Makefile
 
-%.u.tex: %.tex
+%.u.tex: %.tex  res.cls
 	sed -e 's/\\url/\\href{URL}/g' -e 's/\\ / /g' $^ >| $@
 
 %.u.html: %.u.tex
