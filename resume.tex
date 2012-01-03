@@ -17,7 +17,8 @@
 %\usepackage[usenames,dvipsnames]{color}
 \usepackage[]{hyperref}
 
-
+% useful for control of listings
+\usepackage{enumitem}
 
 \def\Cplusplus{{\rm C\raise.5ex\hbox{\small ++}}}
 \newcommand{\mplace}[1]{\textbf{#1}}
@@ -208,7 +209,7 @@
  \employer{Rutgers-Newark}
  \title{GNU/Linux Cluster System Administrator}
  \location{Psych. Department, Rutgers-Newark NJ., USA}
- \dates{September 2005 -- present}
+ \dates{September 2005 -- May 2009}
  \begin{position}
    Deployment and maintenance of 27 node high availability {AMD}
    {O}pteron based cluster. % running GNU/Linux Debian OS.
@@ -334,7 +335,7 @@
 
  \section{Projects and Contributions}
 
- \begin{itemize}
+ \begin{itemize}[parsep=0.2em,leftmargin=1em]
 
  \item Cofounder and core developer of NeuroDebian project: \url{http://neuro.debian.net}
 
@@ -342,13 +343,14 @@
 
  \item Contributor to various FOSS projects: \url{http://www.ohloh.net/accounts/yarikoptic}
 
- \item Debian developer overseeing more than 20 packages: fail2ban,
-   impressive, pyepl, scikits-learn, etc.
+ \item Debian developer overseeing dozens of packages
+   (\url{http://qa.debian.org/developer.php?login=yoh}) and
+   participating in Debian Science and Debian Med projects.
 
  \end{itemize}
 
  \section{Skills}
-  \begin{description}
+  \begin{description}[parsep=0.2em,leftmargin=1em]
 
     \item[Programming:]\hspace*{\fill}
       \begin{itemize}
@@ -440,6 +442,32 @@
  \begin{itemize}
 
  \item
+   \mauthors{A.C.  Connolly, J.S.  Guntupalli, J. Gors, M.~Hanke,
+     \textbf{Y.O.~Halchenko}, Y.C.~Wu, A.~Harve and J.V.~Haxby}
+   \mtitle{Representation of biological classes in the human brain}
+   \mwhere{Journal of Neuroscience, In press}
+
+ \item
+   \mauthors{K.~Gorgolewski, C.D.~Burns, C.~Madison, D.~Clark, \textbf{Y.O.~Halchenko},
+     M.L.~Waskom and S.S.~Ghosh}
+   \mtitle{Nipype: a flexible, lightweight and extensible neuroimaging data processing framework in Python.}
+   \mwhere{Frontiers in Neuroinformatics, 2011}
+
+
+ \item
+   \mauthors{M.~Hanke and \textbf{Y.O.~Halchenko}}
+   \mtitle{Neuroscience runs on {GNU/Linux}}
+   \mwhere{Frontiers in Neuroinformatics, 2011}
+
+ \item
+   \mauthors{J.V.~Haxby, J.S.~Guntupalli, A.C.~Connolly,
+     \textbf{Y.O.~Halchenko}, B.R.~Conroy, M.I.~Gobbini, M.~Hanke and
+     P.J.~Ramadge}
+   \mtitle{A Common, High-Dimensional Model of the Representational
+     Space in Human Ventral Temporal Cortex}
+   \mwhere{Neuron, 2011}
+
+ \item
    \mauthors{M.~Hanke, \textbf{Y.O.~Halchenko}, J.V.~Haxby, S.~Pollmann}
    \mtitle{Statistical learning analysis in neuroscience: aiming for
      transparency}
@@ -448,7 +476,7 @@
  \item
    \mauthors{\textbf{Y.O.~Halchenko}, M.~Hanke}
     \mtitle{Advancing Neuroimaging Research with Predictive Multivariate
-Pattern Analysis (MVPA)}
+      Pattern Analysis (MVPA)}
     \mwhere{The Neuromorphic Engineer, May 2010}
 
  \item
@@ -543,73 +571,117 @@ Pattern Analysis (MVPA)}
  \begin{itemize}
 
  \item
+   \mauthors{\textbf{Y.O.~Halchenko}, M.~Hanke and J.V.~Haxby}
+   \mtitle{Multivariate analysis strategies of neuroimaging data in PyMVPA}
+   \mwhere{Annual Meeting of Society for NeuroScience, Washington DC,  USA 2011}
+%     \url{http://penta.debconf.org/dc10_schedule/events/571.en.html}
+
+ \item
+   \mauthors{\textbf{Y.O.~Halchenko} and M.~Hanke}
+   \mtitle{The virtues and sins of PyMVPA}
+   \mwhere{EuroScipy satellite ``Python in Neuroscience'', Paris, France, 2011}
+
+
+ \item
+   \mauthors{\textbf{Y.O.~Halchenko}}
+   \mtitle{$\pi$'s in Debian or Scientific Debian: NumPy, SciPy and beyond}
+   \mwhere{EuroScipy, Paris, France, 2011
+     \url{http://www.euroscipy.org/talk/4379}}
+
+ \item
    \mauthors{M.~Hanke and \textbf{Y.O.~Halchenko}}
    \mtitle{Debian: The ultimate platform for neuroimaging
-     research.}
+     research}
    \mwhere{DebConf10, New York, USA 2010,
      \url{http://penta.debconf.org/dc10_schedule/events/571.en.html}}
 
 
- \item
-   \mauthors{M.~Hanke, \textbf{Y.O.~Halchenko}}
-   \mtitle{PyMVPA: A Python toolbox for machine-learning-based fMRI data analysis}
-   \mwhere{PyMVPA Workshop, Dartmouth College, February 2010}
-
- \item
-   \mauthors{\textbf{Y.O.~Halchenko}, M.~Hanke}
-   \mtitle{An ecosystem of neuroimaging, statistical learning,
-     and open-source software to make research more efficient, more open,
-     and more fun}
-   \mwhere{Dartmouth College, November 2009}
-
- \item
-   \mauthors{\textbf{Y.O.~Halchenko}, M.~Hanke}
-   \mtitle{Reliable Decoding of Neural Data}
-   \mwhere{Berkeley, March 2009}
-
- \item
-   \mauthors{\textbf{Y.O.~Halchenko}, M.~Hanke}
-   \mtitle{PyMVPA: Fathom Brain Function through
-     Multivariate Pattern Analysis}
-   \mwhere{University of Hawaii at Manoa, March 2009}
-
+% \item
+%   \mauthors{M.~Hanke, \textbf{Y.O.~Halchenko}}
+%   \mtitle{PyMVPA: A Python toolbox for machine-learning-based fMRI data analysis}
+%   \mwhere{PyMVPA Workshop, Dartmouth College, February 2010}
+%
+% \item
+%   \mauthors{\textbf{Y.O.~Halchenko}, M.~Hanke}
+%   \mtitle{An ecosystem of neuroimaging, statistical learning,
+%     and open-source software to make research more efficient, more open,
+%     and more fun}
+%   \mwhere{Dartmouth College, November 2009}
+%
+% \item
+%   \mauthors{\textbf{Y.O.~Halchenko}, M.~Hanke}
+%   \mtitle{Reliable Decoding of Neural Data}
+%   \mwhere{Berkeley, March 2009}
+%
+% \item
+%   \mauthors{\textbf{Y.O.~Halchenko}, M.~Hanke}
+%   \mtitle{PyMVPA: Fathom Brain Function through
+%     Multivariate Pattern Analysis}
+%   \mwhere{University of Hawaii at Manoa, March 2009}
+%
  \end{itemize}
 
 \section{Recent Poster Presentations }
 
 \begin{itemize}
  \item
-   \mauthors{S.S.~Ghosh, C.D.~Burns, D.~Clark, K.~Gorgolewski,
-       \textbf{Y.O.~Halchenko}, C.~Madison, R.F.~Tungaraza,
-       K.J.~Millman}
-   \mtitle{Nipype: Opensource platform for unified and
-     replicable interaction with existing neuroimaging tools}
-   \mwhere{Annual Meeting of the Organization for Human Brain Mapping,
-   June 2010}
+   \mauthors{M.~Hanke, \textbf{Y.O.~Halchenko} and J.V.~Haxby}
+   \mtitle{NeuroDebian: versatile platform for brain imaging research}
+   \mwhere{Annual Meeting of the Organization for Human Brain Mapping, 2011}
 
  \item
-   \mauthors{\textbf{Y.O.~Halchenko}, M.~Hanke, J.V.~Haxby, S.J.~Hanson, S.~Pollmann}
-   \mtitle{Neural activity localization by predictive mapping between imaging modalities}
-   \mwhere{Cognitive Neuroscience Society Annual Meeting, March 2010}
+   \mauthors{M.~Hanke, \textbf{Y.O.~Halchenko}, J.S.C.~Guntupalli,
+     A.C.~Connolly and J.V.~Haxby}
+   \mtitle{Unsupervised brain parcellation from functional neuroimaging data}
+   \mwhere{Annual Meeting of the Cognitive Neuroscience Society, 2011}
 
  \item
-   \mauthors{M.~Hanke, \textbf{Y.O.~Halchenko}, J.V.~Haxby, S.J.~Hanson, S.~Pollmann}
-   \mtitle{Improving efficiency in cognitive neuroscience research with NeuroDebian}
-   \mwhere{Cognitive Neuroscience Society Annual Meeting, March 2010}
+   \mauthors{S.V.~Fogelson, P.J.~Kohler, M.~Hanke, \textbf{Y.O.~Halchenko}, J.V.~Haxby,
+     R.H.~Granger and P.U.~Tse}
+   \mtitle{STMVPA: Spatiotemporal
+     multivariate pattern analysis permits fine- grained visual
+     categorization}
+   \mwhere{Annual meeting of the Vision Sciences Society, 2011}
+
+ \item
+   \mauthors{\textbf{Y.O.~Halchenko}, M.~Hanke, J.V.~Haxby,
+     S.~Pollmann, R.D.~Raizada}
+   \mtitle{Having trouble getting your Nature paper? Maybe you are not
+     using the right tools?}
+   \mwhere{Annual Meeting of Society for NeuroScience, USA 2011}
+
+%  \item
+%    \mauthors{S.S.~Ghosh, C.D.~Burns, D.~Clark, K.~Gorgolewski,
+%        \textbf{Y.O.~Halchenko}, C.~Madison, R.F.~Tungaraza,
+%        K.J.~Millman}
+%    \mtitle{Nipype: Opensource platform for unified and
+%      replicable interaction with existing neuroimaging tools}
+%    \mwhere{Annual Meeting of the Organization for Human Brain Mapping,
+%    June 2010}
+% 
+%  \item
+%    \mauthors{\textbf{Y.O.~Halchenko}, M.~Hanke, J.V.~Haxby, S.J.~Hanson, S.~Pollmann}
+%    \mtitle{Neural activity localization by predictive mapping between imaging modalities}
+%    \mwhere{Cognitive Neuroscience Society Annual Meeting, March 2010}
+% 
+%  \item
+%    \mauthors{M.~Hanke, \textbf{Y.O.~Halchenko}, J.V.~Haxby, S.J.~Hanson, S.~Pollmann}
+%    \mtitle{Improving efficiency in cognitive neuroscience research with NeuroDebian}
+%    \mwhere{Cognitive Neuroscience Society Annual Meeting, March 2010}
 
 \end{itemize}
 
 \section{Professional Activities}
 \begin{itemize}
 \item Active reviewer for IEEE Transactions on Signal Processing,
-  Neural Computation, and Neurocomputing
-\item Active reviewed under supervision of the advisor for
-  Neuroreport, Neuroimage, NIPS, etc.
+  Neural Computation, Neuroimage, and Neurocomputing
+%\item Active reviewed under supervision of the advisor for
+%  Neuroreport, Neuroimage, NIPS, etc.
 \item Active mentor for new Debian contributors
 \end{itemize}
 
 
- \section{Languages}
+\section{Languages}
  Fluent in Russian, Ukrainian and English.
 
 %\pagebreak

@@ -23,7 +23,9 @@ all:: $(proj)
 
 %.html: %.u.html
 	sed -e 's/"\([^"]*\)@/"mailto:\1{a}/g' \
-		-e 's/>\([^>]*\)@/>\1{a}/g' $^ \
+		-e 's/>\([^>]*\)@/>\1{a}/g' \
+		-e 's/\[parsep[^]]*\]//g' \
+		$^ \
 	 >| $@
 
 .PHONY: install
