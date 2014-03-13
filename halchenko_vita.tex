@@ -1,0 +1,233 @@
+% wagner_cv.tex
+% Academic vita for Dylan D. Wagner
+% Based on the "ModernCV" template by Xavier Danaux
+% License: http://creativecommons.org/licenses/by-nc-sa/3.0/
+% Last update: March 2014 - Dylan D. Wagner
+%=============================================================
+%---Document Class
+\documentclass[11pt,letter,roman]{moderncv} 
+% Font sizes: 10, 11, or 12; 
+% paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; 
+% font families: sans or roman
+
+%---Configure moderncv style
+\moderncvstyle{classic} 
+% CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+
+\moderncvcolor{black} 
+% CV color - options include: 'blue' (default), 'orange', 'green',
+%                             'red', 'purple', 'grey' and 'black'
+\setlength{\hintscolumnwidth}{2.5cm} % Sets the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} 
+% For the 'classic' style, adjusts the width of the space allocated to name
+
+%---Load packages
+\usepackage[]{a4wide}   %Wider margins
+\usepackage[]{times}    %Nicer fonts
+% Provides special list environments and macros to create new ones
+\usepackage[shortlabels]{enumitem}
+\usepackage{doi}
+
+%---Information for makecvtitle
+\firstname{Dylan D.} % Your first name
+\familyname{Wagner, Ph.D.} % Your last name
+% All information in this block is optional, comment out any lines you don't need
+%\title{Department of Psychological and Brain Sciences, Dartmouth College}
+\address{6207 Moore Hall}{Dartmouth College}
+\mobile{Hanover, NH 03755}
+\phone{(603) 646-0175}
+\fax{(603) 398 1138}
+\email{dylan.d.wagner@dartmouth.edu}
+\homepage{haxbylab.dartmouth.edu/ppl/ddw.html}{haxbylab.dartmouth.edu/ppl/ddw.html} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
+\extrainfo{github.com/ddwagner}
+
+%can use newline in cventry items to space things out. 
+%\newline{}\newline{}
+
+
+%Stuff for bib
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newlist{bibsection}{itemize}{3}
+\setlist[bibsection]{label=,leftmargin=\bibhang,%
+        itemindent=-\bibhang,
+        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+        topsep=0pt}
+\newlist{bibenum}{enumerate}{3}
+\setlist[bibenum]{label=[\arabic*],resume,leftmargin={3.8cm},%
+        itemindent=-\bibhang,
+        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+        topsep=0pt}
+\let\oldendbibenum\endbibenum
+\def\endbibenum{\oldendbibenum\vspace{-.6\baselineskip}}
+\let\oldendbibsection\endbibsection
+\def\endbibsection{\oldendbibsection\vspace{-.6\baselineskip}}
+\makeatother
+
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+\makecvtitle % Print the CV title
+
+%---Education
+\section{Education and Training}
+\cventry{2011--2014}{Postdoctoral Fellow,}{}{Department of Psychological \& Brain Sciences,}{Dartmouth College}{}
+\cventry{2011}{Ph.D. in Psychology,}{}{Dartmouth College}{}{}
+\cventry{2003}{B.A. in Psychology and Music Technology,}{}{McGill University}{}{}
+\cventry{2002--2005}{Research Assistant in Neuropsychology,}{}{Montreal Neurological Institute}{}{}
+
+%---Employment
+%\section{Employment}
+%\cventry{2014--Present}{Assistant Professor,}{}{Department of Psychology,}{Ohio State University}{}
+
+%---Awards and fellowships
+\section{Awards, Honors \& Fellowships}
+\cventry{2013}{}{}{Fellow, Summer Institute in Cognitive Neuroscience,}{UC Davis \& UCSB}{}
+\cventry{2012}{}{}{Runner Up, Society of Experimental Social Psychology (SESP) Dissertation Award}{}{}
+\cventry{2011}{}{}{Hannah Croasdale Award for Academic Excellence, Dartmouth College,}{}{\textit{Awarded to the single graduating student across all departments who most 
+exemplifies the qualities of a scholar}}
+\cventry{2009}{}{}{William M. Smith Promise Award in the Brain Sciences, Dartmouth College}{}{}
+\cventry{2009}{}{}{Fellow, Summer Institute in Cognitive Neuroscience,}{UC Santa Barbara}{}
+\cventry{2007}{}{}{Marie A. Center 1982 Graduate Award for Excellence in Teaching, Dartmouth College}{}{}
+\cventry{2001}{}{}{Fellow, Summer Research Fellowship in Vision Science,}{Center for Vision Science, University of Rochester}{}
+
+%---Talks and Symposia
+\section{Invited Talks \& Symposia}
+\cvitem{TALKS}{}
+\cventry{2014}{}{}{Department of Psychology,}{University of California, Los Angeles}{}
+\cventry{2014}{}{}{Department of Psychology,}{Ohio State University}{}
+\cventry{2013}{}{}{Department of Psychology,}{University of Pittsburgh}{}
+\cventry{2013}{}{}{Department of Psychology,}{Princeton University}{}
+\cventry{2012}{}{}{Social Psychology Research Workshop,}{Harvard University}{}
+\cventry{2011}{}{}{Sackler Institute for Developmental Psychobiology,}{Weill Cornell Medical College}{}
+\cventry{2011}{}{}{Current Work in Social Psychology,}{Yale University}{}
+\cventry{2010}{}{}{Media Conference,}{Dartmouth Hitchcock Medical Center}{}
+\cventry{2009}{}{}{Minary Social Brain Sciences Retreat,}{Dartmouth College}{}
+\cventry{2009}{}{}{Social Brain Sciences Winter Summit}{}{}
+\cventry{2008}{}{}{Social Psychology Research Interest Group,}{Dartmouth College}{}
+\cventry{2007}{}{}{Social Brain Sciences Winter Summit}{}{}
+\cvitem{}{}
+\cvitem{SYMPOSIA}{}
+\cventry{2013}{}{I'm tired and you look delicious: self-regulatory depletion leads to increased reward related neural responses to appetitive stimuli,}{Symposia: Self-control does a body good? Evidence from the brain, heart, liver and behavior,}{14\textsuperscript{th} Annual Meeting of the Society for Personality and Social Psychology, New Orleans, Louisiana}{}
+\cventry{2011}{}{Neural bases of self-regulatory failure.}{Symposia: Mechanisms of ego depletion,}{12\textsuperscript{th} Annual Meeting of the Society for Personality and Social Psychology, San Antonio, Texas}{}
+
+\section{Professional Activities, Memberships, Service \& Outreach}
+\cvitem{AD HOC REVIEWER}{}
+\cvitem{Journals}{Addiction Biology, Biological Psychiatry, Brain, Cerebral Cortex, Epilepsia, Frontiers in Neuroinformatics,Frontiers in Brain Imaging Methods, Journal of Cognitive Neuroscience, NeuroImage, NeuroImage: Clinical, Neuroscience and Biobehavioral Reviews, Personality and Social Psychology Review, PLoS One, PLoS One Computational Biology, Social Cognitive and Affective Neuroscience, Social and Personality Psychology Compass}
+\cvitem{Grants}{National Science Foundation}
+\cvitem{Conference Abstracts}{Society for Personality and Social Psychology Annual Meeting}
+\cvitem{}{}
+\cvitem{SOCIETY MEMBERSHIPS}{Society for Personality and Social Psychology, Cognitive Neuroscience Society, Social and Affective Neuroscience Society, Association for Psychological Science}
+\cvitem{}{}
+\cvitem{SERVICE \& OUTREACH}{}
+\cventry{2009-2010}{}{}{Organizer, fMRI methods Series,}{Dartmouth College}{}
+\cventry{2008-2009}{}{}{}{Appointed representative to the Graduate 
+Committee, Dartmouth College}{}
+\cventry{2008-2009}{}{}{Organizer, Graduate Research Roundtable,}{Dartmouth College}{}
+\cventry{2008-2009}{}{}{Organizer, Social Brain Sciences Series,}{Dartmouth College}{}
+\cventry{2006-2009}{}{}{Organizer, Department Colloquia Committee,}{Dartmouth College}{}
+\cventry{2005}{}{}{Organizer, Brain Awareness Week,}{Society for Neuroscience, Montreal}{}
+\cventry{2004}{}{}{Instructor, Brain Awareness Week,}{Society for Neuroscience, Montreal}{}
+
+\section{Teaching \& Mentoring}
+\cvitem{TEACHING}{}
+\cventry{2008}{}{}{Teaching Assistant, Social Psychology,}{Dartmouth College}{}
+\cventry{2006}{}{}{Co-lecturer, Experimental Study of Social Behavior,}{Dartmouth College}{}
+\cventry{Spring 2006}{}{}{Lab Instructor, Laboratory in Psychological Science,}{Dartmouth College}{}
+\cventry{Summer 2006}{}{}{Lab Instructor, Laboratory in Psychological Science,}{Dartmouth College}{}
+\cvitem{}{}
+\cvitem{MENTORING}{}
+\cventry{2013}{}{}{}{Honors thesis research supervisor (Sophie Palitz), Dartmouth College}{Project title: Neural mechanisms of self-regulatory depletion}
+\cventry{2012}{}{}{}{Honors thesis research supervisor (Carolyn Meehan), Dartmouth College}{Project title: Does glucose restore self-control?}
+\cventry{2011}{}{}{}{Honors thesis research supervisor (Myra Altman), Dartmouth College}{Project title: Cognitive depletion and food-cue reactivity}
+\cventry{2010}{}{}{}{Honors thesis research supervisor (Rebecca Boswell), Dartmouth College}{Project title: Mood induction increases cue-reactivity in restrained eaters}
+\cventry{2009}{}{}{}{Honors thesis research supervisor (Stacie M. Payne), Dartmouth College}{Project title: The neural correlates of subliminal affective priming in biasing judicial decision making}
+\cventry{2009}{}{}{}{Honors thesis research supervisor (Catherine Amble), Dartmouth College}{Project title: Brain basis of self-regulatory failure in chronic dieters}
+
+\section{Publications}
+\subsection{PEER-REVIEWED ARTICLES}
+\begin{bibenum}
+\item Lopez, R.B., Hofmann, W., \textbf{Wagner, D.D.}, Kelley, W.M., Heatherton, T.F. (In Press). Neural predictors of giving in to temptation in daily life. \emph{Psychological Science}.
+
+\item \textbf{Wagner, D.D.}, Altman, M., Boswell, R.G., Kelley, W.M., Heatherton, T.F. (2013). Self-Regulatory Depletion Enhances Neural Responses to Rewards and Impairs Top-Down Control. \emph{Psychological Science}. 24(11): 2262--71.
+
+\item Chen, P. A., \textbf{Wagner, D.D.}, Kelley, W.M., Powers, K.E., Heatherton, T.F. (2013). Medial Prefrontal Cortex Differentiates Self from Mother in Chinese. Culture and Brain. 1(1): 3--15.
+
+\item \textbf{Wagner, D.D.}, Heatherton, T.F. (2013). Self-Regulatory Depletion Increases Emotional Reactivity in the Amygdala.  Social Cognitive and Affective Neuroscience. 8(4): 410--417.
+
+\item \textbf{Wagner, D.D.}, Haxby, J.V., Heatherton, T.F. (2012). The Representation of Self and Person Knowledge in the Medial Prefrontal Cortex. Wiley Interdisciplinary Reviews:Cognitive Science. 3(4): 451--470.
+
+\item \textbf{Wagner, D.D.}, Boswell, R.G., Kelley, W.M., Heatherton, T.F. (2012). Inducing negative affect increases the reward value of appetizing foods in dieters. Journal of Cognitive Neuroscience. 24(7): 1625--1633.
+
+\item Somerville, L.H., \textbf{Wagner, D.D.}, Wig, G.S., Moran, J.M., Whalen, P.J., Kelley, W.M. (2012). Interactions Between Transient and Sustained Neural Signals Support the Generation and Regulation of Anxious Emotion. Cerebral Cortex. 23(1): 49--60.
+
+\item Powers, K.E., \textbf{Wagner, D.D.}, Norris, C.J., Heatherton, T.F. (2011). Socially excluded individuals fail to recruit medial prefrontal cortex for negative social scenes. Social Cognitive and Affective Neuroscience. 8(2): 151--7.
+
+\item Heatherton, T.F., \textbf{Wagner, D.D.} (2011). The Cognitive Neuroscience of Self-Regulatory Failure. Trends in Cognitive Science 15(3): 132--139.
+
+\item \textbf{Wagner, D.D.}, Kelley, W.M., Heatherton, T.F. (2011). Individual differences in the spontaneous recruitment of brain regions supporting mental state understanding when viewing natural social scenes. Cerebral Cortex 21(12): 2788--2796.
+
+\item \textbf{Wagner, D.D.}, Dal Cin, S., Sargent, J.D., Kelley, W.M., Heatherton, T.F. (2011).
+Spontaneous Action Representation in Smokers when Watching Movie Characters Smoke. Journal of Neuroscience 31(3): 894--898.
+			
+\item \textbf{Wagner, D.D.}, Sziklas, V., Garver, K.E., Jones-Gotman, M. (2009) Material specific
+lateralization of working memory in the medial temporal lobe. Neuropsychologia
+47 (1), pp. 112–-122.
+
+\item Kennepohl, S., Sziklas, V., Garver, K.E., \textbf{Wagner, D.D.}, Jones-Gotman, M. (2007) Memory and the medial temporal lobe: Hemispheric specialization reconsidered. Neuroimage 36 (3), pp. 969--978.
+\end{bibenum}
+\cvitem{}{}
+\cvitem{}{}
+
+\subsection{CHAPTERS}
+\restartlist{bibenum}
+\begin{bibenum}
+
+\item \textbf{Wagner, D.D.} (Forthcoming) Mentalizing. In Toga \& Lieberman (Eds.), \emph{Brain Mapping: An Encyclopedic Reference}
+
+\item Heatherton, T.F., Lopez, R.B., \textbf{Wagner, D.D.} (Forthcoming) Self-regulation and self-regulation failure. In Toga \& Lieberman, \emph{Brain Mapping: An Encyclopedic Reference}. 
+
+\item \textbf{Wagner, D.D.}, Heatherton, T.F. (In Press) Self-Regulation and its Failure: Seven Deadly Threats to Self-Regulation. In Borgida \& Bargh (Eds.), \emph{APA Handbook of Personality and Social Psychology: Volume 1. Attitudes and Social Cognition}. Washington, D.C.:  American Psychological Association.
+
+\item \textbf{Wagner, D.D.}, Heatherton, T.F. (In Press). Self-Regulation and its Failures.  
+In Gazzaniga \& Mangun (Eds.), T\emph{he Cognitive Neurosciences (5th edition)}. Cambridge, MA: MIT Press.
+
+\item Arzi1, A., Banerjee, S., Cox, J.C., D'Souza, D., De Brigard, F., Doll, B.B., Fairley, J., Fleming, S.M., Herholz, S.C., King , D.R., Libby, L.A., Myers, J.C., Neta, M., Pitcher, D., Power, J.D., Rass, O., Ritchey, M., Jubal, E.R., Royston, A., \textbf{Wagner, D.D.}, Wang, W., Waring, J.D., Williams, J., Wood, S. (In Press). The significance of cognitive neuroscience: Findings, applications, and challenges. In Gazzaniga \& Mangun (Eds.), \emph{The Cognitive Neurosciences (5th edition)}. Cambridge, MA: MIT Press.
+
+\item Lopez, R.B. , \textbf{Wagner, D.D.}, Vohs, K.D., Heatherton, T.F. (In Press). Self-regulatory strength: neural mechanisms and implications for training. In Gendolla, Tops \& Koole (Eds.), \emph{Biobehavioral Foundations of Self-regulation}. Springer.
+
+\item \textbf{Wagner, D.D.}, Heatherton, T.F. (2013) Emotion and Self-Regulation Failure. In Gross (Ed), \emph{Handbook of Emotion Regulation (2nd edition)}. New York, N.Y.: Guilford Press. 
+
+\item \textbf{Wagner, D.D.}, Heatherton, T.F. (2010) Giving in to temptation: The emerging cognitive neuroscience of self regulatory failure. In Baumeister \& Vohs (Eds.), \emph{Handbook of Self Regulation: Research, theory and applications (2nd edition)}. New York, N.Y.: Guilford Press. 
+
+\item \textbf{Wagner, D.D.}, Demos, K.E., Heatherton, T.F. (2011) Staying in control: The
+cognitive neuroscience of self-regulation and its failure. In Cacioppo \& Decety
+(Eds.), \emph{Handbook of Social Neuroscience}. Oxford University Press. 
+
+\item Heatherton, T.F., Krendl, A.C., \textbf{Wagner, D.D.} (2008) Neurophysiological Approaches to Understanding Behavior. \emph{Human Behavior in a Military Context}. Washington, DC: The National Academies Press, pp. 217--238.
+
+\end{bibenum}
+
+\cvitem{}{}
+\cvitem{}{}
+\subsection{COMMENTARIES ON RESEARCH}
+\restartlist{bibenum}
+\begin{bibenum}
+
+\item (Commentary on \textbf{Wagner \& Heatherton, 2013}) \\ Berkman, E.T., Miller-Ziegler, J. (2013). Imaging depletion: fMRI provides new insights into the processes underlying ego depletion. \emph{Social Cognitive and Affective Neuroscience}. 8(4): 359--361.
+
+\item (Commentary on \textbf{Wagner et al. 2011}) \\ Yalachkov, Y., Naumer, M. J. (2011). Involvement of action- related brain regions in nicotine addiction. \emph{Journal of Neurophysiology}, 106(1): 1--3.
+\end{bibenum}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-master: t
+%%% ispell-local-dictionary: "american"
+%%% auto-fill-inhibit-regexp: ".*[&|].*[&|].*"
+%%% End:
