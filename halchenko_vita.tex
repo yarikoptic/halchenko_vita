@@ -1,226 +1,393 @@
-% wagner_cv.tex
-% Academic vita for Dylan D. Wagner
+% rubber: module pdftex
+% halchenko_vita.tex
+% Academic vita for Yaroslav O. Halchenko
 % Based on the "ModernCV" template by Xavier Danaux
+% which was adopted by Dylan D. Wagner and served me an example
 % License: http://creativecommons.org/licenses/by-nc-sa/3.0/
-% Last update: March 2014 - Dylan D. Wagner
 %=============================================================
 %---Document Class
-\documentclass[11pt,letter,roman]{moderncv} 
+\documentclass[11pt,letter,roman]{moderncv}
 % Font sizes: 10, 11, or 12; 
 % paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; 
 % font families: sans or roman
 
+
 %---Configure moderncv style
-\moderncvstyle{classic} 
+\moderncvstyle{casual}
 % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
 
-\moderncvcolor{black} 
+\moderncvcolor{blue} 
 % CV color - options include: 'blue' (default), 'orange', 'green',
 %                             'red', 'purple', 'grey' and 'black'
 \setlength{\hintscolumnwidth}{2.5cm} % Sets the width of the dates column
 %\setlength{\makecvtitlenamewidth}{10cm} 
 % For the 'classic' style, adjusts the width of the space allocated to name
 
+\usepackage{moderntimeline}
+\tlmaxdates{1994}{2015}
+%\tlwidth{0.8ex}
+% Set the labels text size
+%\tltext{\tiny}
+%\tltextstart[south east]{\scriptsize}
+%\tltextend[south west]{\scriptsize}
+
+% both seems to be of no effect :-/
+
+%\usepackage{hyperref}
+% \newcommand\Colorhref[3][cyan]{\href{#2}{\small\color{#1}#3}}
+% \AtBeginDocument{\hypersetup{pdfborder = 0 0 1,linkcolor=blue}}
+\usepackage{natbib}           % To make workaround work
+% workaround for bibentry + hyperref
+\makeatletter
+\let\saved@bibitem\@bibitem
+\makeatother
+\usepackage{bibentry}           % To automate inclusion of references
+                                % separately in 2 sections
+
+% yoh: dislikes automatic commas
+\renewcommand*{\cventry}[7][.25em]{%
+  \cvitem[#1]{#2}{%
+    {\bfseries#3}%
+    \ifthenelse{\equal{#4}{}}{}{\ifthenelse{\equal{#3}{}}{}{,} {\slshape#4}}%
+    \ifthenelse{\equal{#5}{}}{}{, #5}%
+    \ifthenelse{\equal{#6}{}}{}{, #6}%
+    \ifthenelse{\equal{#4#5#6}{}}{}{.\strut}%
+    \ifx&#7&%
+      \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
+
+\newcommand{\hurl}[1]{\href{http://#1}{#1}}
+
 %---Load packages
 \usepackage[]{a4wide}   %Wider margins
 \usepackage[]{times}    %Nicer fonts
 % Provides special list environments and macros to create new ones
 \usepackage[shortlabels]{enumitem}
-\usepackage{doi}
+%\usepackage{doi}
 
 %---Information for makecvtitle
-\firstname{Dylan D.} % Your first name
-\familyname{Wagner, Ph.D.} % Your last name
+\firstname{Yaroslav O.} % Your first name
+\familyname{Halchenko, Ph.D.} % Your last name
 % All information in this block is optional, comment out any lines you don't need
 %\title{Department of Psychological and Brain Sciences, Dartmouth College}
 \address{6207 Moore Hall}{Dartmouth College}
 \mobile{Hanover, NH 03755}
-\phone{(603) 646-0175}
-\fax{(603) 398 1138}
-\email{dylan.d.wagner@dartmouth.edu}
-\homepage{haxbylab.dartmouth.edu/ppl/ddw.html}{haxbylab.dartmouth.edu/ppl/ddw.html} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
-\extrainfo{github.com/ddwagner}
+\phone{(603) 646-9834}
+\fax{(603) 398-1138}
+\email{career@onerussian.com}
+% TODO: make url clickable
+\homepage{haxbylab.dartmouth.edu/ppl/yarik.html}%{haxbylab.dartmouth.edu/ppl/yarik.html} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
+\extrainfo{
+  \hurl{www.linkedin.com/in/yarik}
+  \hurl{github.com/yarikoptic}
+%  \hurl{ohloh.net/accounts/yarikoptic}
+ }
+% \hurl{plus.google.com/+YaroslavHalchenko}}
 
 %can use newline in cventry items to space things out. 
 %\newline{}\newline{}
 
 
-%Stuff for bib
-\makeatletter
-\newlength{\bibhang}
-\setlength{\bibhang}{1em}
-\newlength{\bibsep}
- {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
-\newlist{bibsection}{itemize}{3}
-\setlist[bibsection]{label=,leftmargin=\bibhang,%
-        itemindent=-\bibhang,
-        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
-        topsep=0pt}
-\newlist{bibenum}{enumerate}{3}
-\setlist[bibenum]{label=[\arabic*],resume,leftmargin={3.8cm},%
-        itemindent=-\bibhang,
-        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
-        topsep=0pt}
-\let\oldendbibenum\endbibenum
-\def\endbibenum{\oldendbibenum\vspace{-.6\baselineskip}}
-\let\oldendbibsection\endbibsection
-\def\endbibsection{\oldendbibsection\vspace{-.6\baselineskip}}
-\makeatother
+% %Stuff for bib
+ \makeatletter
+%  \newlength{\bibhang}
+  \setlength{\bibhang}{0em}
+%  \newlength{\bibsep}
+%   {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+%  \newlist{bibsection}{itemize}{3}
+%  \setlist[bibsection]{label=,leftmargin=\bibhang,%
+%          itemindent=-\bibhang,
+%          itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+%          topsep=0pt}
+  \newlist{bibenum}{enumerate}{3}
+  \setlist[bibenum]{label=[\arabic*],resume,leftmargin={2.8cm},%
+          itemindent=-\bibhang,
+          itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+          topsep=0pt}
+  \let\oldendbibenum\endbibenum
+  \def\endbibenum{\oldendbibenum\vspace{-.6\baselineskip}}
+  \let\oldendbibsection\endbibsection
+  \def\endbibsection{\oldendbibsection\vspace{-.6\baselineskip}}
+  \makeatother
 
+
+% 
 %----------------------------------------------------------------------------------------
 \begin{document}
-
 \makecvtitle % Print the CV title
+
+% ideas: Professional network
+%\cvline{Linkedin.com}{\small \href{http://www.linkedin.com/in/adamatan}             {Adam Matan}   - Professional profile and links.    }
+%\cvline{Stackoverflow.com}{\small \href{http://stackoverflow.com/users/51197/adam-matan} {Adam Matan}   - My software questions and answers. }
+%\cvline{twitter.com}{\small \href{http://twitter.com/justnoticed}
 
 %---Education
 \section{Education and Training}
-\cventry{2011--2014}{Postdoctoral Fellow,}{}{Department of Psychological \& Brain Sciences,}{Dartmouth College}{}
-\cventry{2011}{Ph.D. in Psychology,}{}{Dartmouth College}{}{}
-\cventry{2003}{B.A. in Psychology and Music Technology,}{}{McGill University}{}{}
-\cventry{2002--2005}{Research Assistant in Neuropsychology,}{}{Montreal Neurological Institute}{}{}
+\tllabelcventry{2009}{2012}{2012}{Postdoctoral Fellow}{}{}{}{Department of Psychological \& Brain Sciences, Dartmouth College\newline Adviser: \href{mailto:James.V.Haxby@dartmouth.edu}{Dr. James V. Haxby}}
+\tllabelcventry{2004}{2009}{2009}{Ph.D. in Computer Science}{}{}{}{Computer Science Department, NJIT (NJ Institute of Technology)\newline Adviser: \href{mailto:jose@rubic.rutgers.edu}{Dr. Stephen J. Hanson}, Rutgers-Newark}
+\tllabelcventry{2000}{2003}{2003}{M.S. in Computer Science}{}{}{}{Computer Science Department, UNM (University of New Mexico)\newline Adviser: \href{mailto:barak@cs.nuim.ie}{Dr. Barak Pearlmutter}}
+\tllabelcventry{1994}{1999}{1999}{M.S. in Laser and Optoelectronic Engineering}{}{}{}{Computer Systems Department, VSTU (Vinnytsia State Technical University), Ukraine}
+\tldatecventry{1994}{Graduated with honors}{}{}{}{Physics and Mathematical Gymnasia No.17, Ukraine}
+
+% looks like a neat list
+%\cvlistdoubleitem{Mathematical Logic I}{Mathematical Logic II}
+%\cvlistdoubleitem{Modal Logic}{Intensional and Higher-Order Logic}
+%\cvlistdoubleitem{Philosophy of Mathematics}{Early Analytic Philosophy}
 
 %---Employment
-%\section{Employment}
-%\cventry{2014--Present}{Assistant Professor,}{}{Department of Psychology,}{Ohio State University}{}
+% TODO: add to each role
+%  "Skillset" summarizing the technologies/approaches
+%  "References"
+% Customize item lists to reduce spacing a bit
+\section{Employment}
+
+%\cventry{2013--present}
+\tlcventry{2013}{0}{Research Scientist}{}{}{}{Department of Psychological \& Brain Sciences, Dartmouth College
+\begin{itemize}
+\item Visual perception: effects of familiarity on face identification
+\item Software framework for statistical analysis of neural data: \href{http://pymvpa.org}{PyMVPA}
+\item Turnkey software platform for neuroscience: \href{http://neuro.debian.net}{NeuroDebian}
+\end{itemize}
+}
+
+\tllabelcventry{2003}{2009}{2003--2009}{Research Assistant}{}{}{}%
+{\href{http://www.rumba.rutgers.edu}{Mind/Brain RUMBA Laboratory}, Rutgers-Newark, NJ
+   \begin{itemize}
+   \item Predictive decoding and fusion of the neural data from and
+     across different imaging modalities (e.g. EEG, fMRI) to gain
+     better understanding of perception (e.g. auditory) and cognitive
+     (e.g. category specific processing) neuroscientific problems
+   \item Graphical modeling of functional brain organization \\
+   \end{itemize}}
+
+\tllabelcventry{2005}{2009}{2005--2009}{Computing Cluster System Administrator}{}{}{}%
+{Rutgers-Newark, NJ
+  \begin{itemize}
+  \item Deployment and maintenance of 27 node high availability
+    cluster running GNU/Linux Debian OS.
+  \end{itemize}}
+
+\tllabelcventry{2000}{2002}{2000--2002}{Research Assistant}{}{}{}%
+{\href{http://www-bcl.cs.unm.edu}{Brain and Computation Laboratory}, UNM Albuquerque, NM
+  \begin{itemize}
+  \item Implementation and deployment of ICA (Independent Component
+   Analysis) techniques for processing of MEG (Magnetoencephalography)
+   data as a part of the DreamMon project.
+  \end{itemize}}
+
+\tllabelcventry{1996}{1997}{1996--1997}{Software Developer}{}{}{}%
+{%\href{http://www-bcl.cs.unm.edu}{Brain and Computation Laboratory},
+ \href{http://www.webliana.com.ua}{Liana Company}, Vinnytsia, Ukraine
+  \begin{itemize}
+  \item Software developer of automated system for Planned-Economic
+    Department of Vinnytsia Chemical Plant (Himprom).
+  \end{itemize}}
+
+
+\tllabelcventry{1993}{1997}{1993--1997}{Research Assistant}{}{}{}%
+{VSTU, Vinnytsia, Ukraine
+  \begin{itemize}
+  \item Software developer of the system for diagnostics of vertebral
+    column. System later was utilized in national hospitals of
+    Ukraine.
+  \end{itemize}}
+
+% \section{Professional Community Activities}
+% moved to Service and Outreach
 
 %---Awards and fellowships
 \section{Awards, Honors \& Fellowships}
-\cventry{2013}{}{}{Fellow, Summer Institute in Cognitive Neuroscience,}{UC Davis \& UCSB}{}
-\cventry{2012}{}{}{Runner Up, Society of Experimental Social Psychology (SESP) Dissertation Award}{}{}
-\cventry{2011}{}{}{Hannah Croasdale Award for Academic Excellence, Dartmouth College,}{}{\textit{Awarded to the single graduating student across all departments who most 
-exemplifies the qualities of a scholar}}
-\cventry{2009}{}{}{William M. Smith Promise Award in the Brain Sciences, Dartmouth College}{}{}
-\cventry{2009}{}{}{Fellow, Summer Institute in Cognitive Neuroscience,}{UC Santa Barbara}{}
-\cventry{2007}{}{}{Marie A. Center 1982 Graduate Award for Excellence in Teaching, Dartmouth College}{}{}
-\cventry{2001}{}{}{Fellow, Summer Research Fellowship in Vision Science,}{Center for Vision Science, University of Rochester}{}
+\tllabelcventry{1998}{1999}{1998}{Fellow}{The International Scientific Fund Representatives in Ukrainian Studentship Award}{}{}{}
+\tldatecventry{1996}{Award}{}{}{The Academy of Sciences of Ukraine}{Project: \emph{Information-Measuring System With Optical Transformation Biomedical Information}}{}
+\tldatecventry{1995}{6th place}{}{}{ACM South-Eastern European Regional Programming Contest}{1st place at VSTU}
+\tllabelcventry{1995}{1996}{1995}{Fellow}{The International Soros Science Educational Program (ISSEP) Studentship Award}{}{}{}
+\tldatecventry{1995}{4th place}{Physics Contest among Colleges and Universities of Ukraine}{}{}{1st place at VSTU}
+\tldatecventry{1994}{1st place}{Regional Programming Contest}{}{}{}
+\tldatecventry{1993}{3rd place}{Regional Physics Contest}{}{}{}
 
-%---Talks and Symposia
-\section{Invited Talks \& Symposia}
-\cvitem{TALKS}{}
-\cventry{2014}{}{}{Department of Psychology,}{University of California, Los Angeles}{}
-\cventry{2014}{}{}{Department of Psychology,}{Ohio State University}{}
-\cventry{2013}{}{}{Department of Psychology,}{University of Pittsburgh}{}
-\cventry{2013}{}{}{Department of Psychology,}{Princeton University}{}
-\cventry{2012}{}{}{Social Psychology Research Workshop,}{Harvard University}{}
-\cventry{2011}{}{}{Sackler Institute for Developmental Psychobiology,}{Weill Cornell Medical College}{}
-\cventry{2011}{}{}{Current Work in Social Psychology,}{Yale University}{}
-\cventry{2010}{}{}{Media Conference,}{Dartmouth Hitchcock Medical Center}{}
-\cventry{2009}{}{}{Minary Social Brain Sciences Retreat,}{Dartmouth College}{}
-\cventry{2009}{}{}{Social Brain Sciences Winter Summit}{}{}
-\cventry{2008}{}{}{Social Psychology Research Interest Group,}{Dartmouth College}{}
-\cventry{2007}{}{}{Social Brain Sciences Winter Summit}{}{}
-\cvitem{}{}
-\cvitem{SYMPOSIA}{}
-\cventry{2013}{}{I'm tired and you look delicious: self-regulatory depletion leads to increased reward related neural responses to appetitive stimuli,}{Symposia: Self-control does a body good? Evidence from the brain, heart, liver and behavior,}{14\textsuperscript{th} Annual Meeting of the Society for Personality and Social Psychology, New Orleans, Louisiana}{}
-\cventry{2011}{}{Neural bases of self-regulatory failure.}{Symposia: Mechanisms of ego depletion,}{12\textsuperscript{th} Annual Meeting of the Society for Personality and Social Psychology, San Antonio, Texas}{}
 
 \section{Professional Activities, Memberships, Service \& Outreach}
-\cvitem{AD HOC REVIEWER}{}
-\cvitem{Journals}{Addiction Biology, Biological Psychiatry, Brain, Cerebral Cortex, Epilepsia, Frontiers in Neuroinformatics,Frontiers in Brain Imaging Methods, Journal of Cognitive Neuroscience, NeuroImage, NeuroImage: Clinical, Neuroscience and Biobehavioral Reviews, Personality and Social Psychology Review, PLoS One, PLoS One Computational Biology, Social Cognitive and Affective Neuroscience, Social and Personality Psychology Compass}
-\cvitem{Grants}{National Science Foundation}
-\cvitem{Conference Abstracts}{Society for Personality and Social Psychology Annual Meeting}
-\cvitem{}{}
-\cvitem{SOCIETY MEMBERSHIPS}{Society for Personality and Social Psychology, Cognitive Neuroscience Society, Social and Affective Neuroscience Society, Association for Psychological Science}
-\cvitem{}{}
-\cvitem{SERVICE \& OUTREACH}{}
-\cventry{2009-2010}{}{}{Organizer, fMRI methods Series,}{Dartmouth College}{}
-\cventry{2008-2009}{}{}{}{Appointed representative to the Graduate 
-Committee, Dartmouth College}{}
-\cventry{2008-2009}{}{}{Organizer, Graduate Research Roundtable,}{Dartmouth College}{}
-\cventry{2008-2009}{}{}{Organizer, Social Brain Sciences Series,}{Dartmouth College}{}
-\cventry{2006-2009}{}{}{Organizer, Department Colloquia Committee,}{Dartmouth College}{}
-\cventry{2005}{}{}{Organizer, Brain Awareness Week,}{Society for Neuroscience, Montreal}{}
-\cventry{2004}{}{}{Instructor, Brain Awareness Week,}{Society for Neuroscience, Montreal}{}
+%\cvitem{AD-HOC REVIEWER}{}
+\subsection*{AD-HOC REVIEWER}
+\cvitem{Journals}{
+Brain Structure and Function,
+Frontiers in Neuroinformatics,
+Human Brain Mapping,
+IEEE Transactions on Signal Processing,
+Journal of Cognitive Neuroscience,
+Journal of Machine Learning Research,
+Nature's Scientific Data,
+Neural Computation,
+NeuroImage,
+Neuroreport,
+Pattern Recognition,
+SPIE
+}
 
-\section{Teaching \& Mentoring}
-\cvitem{TEACHING}{}
-\cventry{2008}{}{}{Teaching Assistant, Social Psychology,}{Dartmouth College}{}
-\cventry{2006}{}{}{Co-lecturer, Experimental Study of Social Behavior,}{Dartmouth College}{}
-\cventry{Spring 2006}{}{}{Lab Instructor, Laboratory in Psychological Science,}{Dartmouth College}{}
-\cventry{Summer 2006}{}{}{Lab Instructor, Laboratory in Psychological Science,}{Dartmouth College}{}
-\cvitem{}{}
-\cvitem{MENTORING}{}
-\cventry{2013}{}{}{}{Honors thesis research supervisor (Sophie Palitz), Dartmouth College}{Project title: Neural mechanisms of self-regulatory depletion}
-\cventry{2012}{}{}{}{Honors thesis research supervisor (Carolyn Meehan), Dartmouth College}{Project title: Does glucose restore self-control?}
-\cventry{2011}{}{}{}{Honors thesis research supervisor (Myra Altman), Dartmouth College}{Project title: Cognitive depletion and food-cue reactivity}
-\cventry{2010}{}{}{}{Honors thesis research supervisor (Rebecca Boswell), Dartmouth College}{Project title: Mood induction increases cue-reactivity in restrained eaters}
-\cventry{2009}{}{}{}{Honors thesis research supervisor (Stacie M. Payne), Dartmouth College}{Project title: The neural correlates of subliminal affective priming in biasing judicial decision making}
-\cventry{2009}{}{}{}{Honors thesis research supervisor (Catherine Amble), Dartmouth College}{Project title: Brain basis of self-regulatory failure in chronic dieters}
+\cvitem{Conference Abstracts}{NIPS, SciPy}
+
+\subsection*{REVIEW EDITOR}
+
+\cvitem{Journals}{Frontiers in Brain Imaging Research}
+
+\subsection*{GUEST EDITOR}
+\cvitem{}{\href{http://www.frontiersin.org/neuroinformatics/researchtopics/python_in_neuroscience_ii/1591}{Python
+    in Neuroscience II} special issue, Frontiers in Neuroscience \& Brain Imaging Methods}
+
+\subsection*{PAST AND CURRENT SOCIETY MEMBERSHIPS}
+\cvitem{}{
+Association for Psychological Science,
+Organization for Human Brain Mapping,
+Society for Neuroscience,
+Ukraine Small Academy of Sciences
+}
+
+\subsection*{SERVICE \& OUTREACH}{}
+%\cventry{2009-2010}{}{}{Organizer, fMRI methods Series,}{Dartmouth College}{}
+%\cventry{2008-2009}{}{}{}{Appointed representative to the Graduate Committee, Dartmouth College}{}
+%\cventry{2008-2009}{}{}{Organizer, Graduate Research Roundtable,}{Dartmouth College}{}
+%\cventry{2008-2009}{}{}{Organizer, Social Brain Sciences Series,}{Dartmouth College}{}
+%\cventry{2006-2009}{}{}{Organizer, Department Colloquia Committee,}{Dartmouth College}{}
+%\cventry{2005}{}{}{Organizer, Brain Awareness Week,}{Society for Neuroscience, Montreal}{}
+%\cventry{2004}{}{}{Instructor, Brain Awareness Week,}{Society for Neuroscience, Montreal}{}
+
+\tlcventry{2014}{0}{Member}{\href{https://www.python.org/psf}{Python Software Foundation}}{}{}{}
+\tlcventry{2011}{0}{Member}{\href{http://www.incf.org/programs/datasharing/neuroimaging-task-force}{Standards
+    for Data Sharing (Neuroimaging taskforce)}}{}{}{International
+  Neuroinformatics Coordination Facility (INCF)}{}
+%\tlcventry{2011}{0}{Initiator}{\href{https://github.com/nipy/nipy-artwork}{Promotional and informative
+%  materials for Python-based scientific software
+%  projects in neuroscience}}{}{}
+\tlcventry{2010}{0}{Exhibitor}{\href{http://neuro.debian.net}{NeuroDebian}}{}{}{Society for Neuroscience and Organization for Human Brain Mapping meetings}{}
+\tlcventry{2005}{0}{Debian Developer}{}{\href{http://www.debian.org}{Debian Project}}{}%
+{ \begin{itemize}
+  \item Integration and maintenance of (scientific) free and
+    open-source software within the Debian GNU/Linux OS.
+  \end{itemize}}
+
+
+\section{Didactic Activities} % Teaching \& Lecturing}
+
+\tldatecventry{2014}{Co-lecturer}{\href{http://www.h-w-k.de/index.php?id=2058}{PyMVPA
+    Workshop}}{}{}{Hanse-Wissenschaftskolleg Institute for Advanced
+  Study, Delmenhorst Germany}
+% TODO: TA for Jim's 2013 Fall MVPA class?
+\tldatecventry{2012}{Co-lecturer}{PyMVPA Workshop}{}{}{Center for
+  Behavioral Brain Sciences, Magdeburg Germany}
+\tldatecventry{2010}{Co-lecturer}{PyMVPA Workshop}{}{}{Psychology and
+  Brain Sciences, Dartmouth College, Hanover USA}
+\tldatecventry{2000}{Teaching Assistant}{Intermediate Programming
+  (CS251)}{}{}{\href{mailto:TODO}{Prof. David Ackley}, Computer Science Department, UNM}
+\tlcventry{2012}{0}{}{PBS Department, Dartmouth College}{Consulting undergraduate and graduate students in
+  application of statistical learning methodologies in their
+  neuroimaging-based research}{}{}
+
+% \subsection{Mentoring}
+
+%---Talks and Symposia
+\section{Recent Talks}
+
+\tldatecventry{2014}{PyCon 2014}{Montr\'eal, Canada}{}{}{}
+\tldatecventry{2014}{SRI International}{Menlo Park, CA}{}{}{}
+\tldatecventry{2013}{SEA Software Engineering Conference}{UCAR}{Boulder, CO}{}{}
+\tldatecventry{2012}{INCF Bootcamp 2012}{Munich, Germany}{}{}{}
+\tldatecventry{2013}{University of Pennsylvania}{Philadelphia, PA}{}{}{}
+\tldatecventry{2011}{Annual Meeting of Society for Neuroscience}{Washington, DC}{}{}{}
+\tldatecventry{2011}{EuroSciPy satellite ``Python in Neuroscience''}{Paris, France}{}{}{}
+\tldatecventry{2011}{EuroSciPy}{Paris, France}{}{}{}
+\tldatecventry{2011}{DebConf10}{New York, NY}{}{}{}
+\tldatecventry{2009}{Dartmouth College}{Hanover, NH}{}{}{}
+\tldatecventry{2009}{Berkeley}{CA}{}{}{}
+\tldatecventry{2009}{University of Hawaii at Manoa}{Honolulu, HI}{}{}{}
 
 \section{Publications}
+
+% TODO: add a reference to Google scholar and state h-index
+
+\bibliographystyle{abbrvnat}    % also puts URLS out
+%\bibliographystyle{apalike}
+
+% Workaround for bibentry + hyperref
+ \begingroup
+    \makeatletter
+    \let\@bibitem\saved@bibitem
+    \nobibliography{haxbylab}
+  \endgroup
+
 \subsection{PEER-REVIEWED ARTICLES}
+
+% useful DOI
+\renewcommand{\doi}[1]{{doi:~\href{http://dx.doi.org/#1}{#1}}}
+\renewcommand{\url}[1]{\href{#1}{#1}}
+
+\sloppy
 \begin{bibenum}
-\item Lopez, R.B., Hofmann, W., \textbf{Wagner, D.D.}, Kelley, W.M., Heatherton, T.F. (In Press). Neural predictors of giving in to temptation in daily life. \emph{Psychological Science}.
-
-\item \textbf{Wagner, D.D.}, Altman, M., Boswell, R.G., Kelley, W.M., Heatherton, T.F. (2013). Self-Regulatory Depletion Enhances Neural Responses to Rewards and Impairs Top-Down Control. \emph{Psychological Science}. 24(11): 2262--71.
-
-\item Chen, P. A., \textbf{Wagner, D.D.}, Kelley, W.M., Powers, K.E., Heatherton, T.F. (2013). Medial Prefrontal Cortex Differentiates Self from Mother in Chinese. Culture and Brain. 1(1): 3--15.
-
-\item \textbf{Wagner, D.D.}, Heatherton, T.F. (2013). Self-Regulatory Depletion Increases Emotional Reactivity in the Amygdala.  Social Cognitive and Affective Neuroscience. 8(4): 410--417.
-
-\item \textbf{Wagner, D.D.}, Haxby, J.V., Heatherton, T.F. (2012). The Representation of Self and Person Knowledge in the Medial Prefrontal Cortex. Wiley Interdisciplinary Reviews:Cognitive Science. 3(4): 451--470.
-
-\item \textbf{Wagner, D.D.}, Boswell, R.G., Kelley, W.M., Heatherton, T.F. (2012). Inducing negative affect increases the reward value of appetizing foods in dieters. Journal of Cognitive Neuroscience. 24(7): 1625--1633.
-
-\item Somerville, L.H., \textbf{Wagner, D.D.}, Wig, G.S., Moran, J.M., Whalen, P.J., Kelley, W.M. (2012). Interactions Between Transient and Sustained Neural Signals Support the Generation and Regulation of Anxious Emotion. Cerebral Cortex. 23(1): 49--60.
-
-\item Powers, K.E., \textbf{Wagner, D.D.}, Norris, C.J., Heatherton, T.F. (2011). Socially excluded individuals fail to recruit medial prefrontal cortex for negative social scenes. Social Cognitive and Affective Neuroscience. 8(2): 151--7.
-
-\item Heatherton, T.F., \textbf{Wagner, D.D.} (2011). The Cognitive Neuroscience of Self-Regulatory Failure. Trends in Cognitive Science 15(3): 132--139.
-
-\item \textbf{Wagner, D.D.}, Kelley, W.M., Heatherton, T.F. (2011). Individual differences in the spontaneous recruitment of brain regions supporting mental state understanding when viewing natural social scenes. Cerebral Cortex 21(12): 2788--2796.
-
-\item \textbf{Wagner, D.D.}, Dal Cin, S., Sargent, J.D., Kelley, W.M., Heatherton, T.F. (2011).
-Spontaneous Action Representation in Smokers when Watching Movie Characters Smoke. Journal of Neuroscience 31(3): 894--898.
-			
-\item \textbf{Wagner, D.D.}, Sziklas, V., Garver, K.E., Jones-Gotman, M. (2009) Material specific
-lateralization of working memory in the medial temporal lobe. Neuropsychologia
-47 (1), pp. 112–-122.
-
-\item Kennepohl, S., Sziklas, V., Garver, K.E., \textbf{Wagner, D.D.}, Jones-Gotman, M. (2007) Memory and the medial temporal lobe: Hemispheric specialization reconsidered. Neuroimage 36 (3), pp. 969--978.
+%\begin{enumerate}[leftmargin=7em,parsep=0em]
+\item \bibentry{GGH+13}         % Processing of invisible social cues
+\item \bibentry{KFR+13}         % Pattern classification precedes ...
+\item \bibentry{GGH+13b}        % Prioritized Detection of Personally Familiar Faces
+\item \bibentry{CGG+12}         % Representation of biological classes in the human brain
+\item \bibentry{HH12}           % Open is not enough. ...
+\item \bibentry{PBG+12}         % Data sharing in neuroimaging research
+\item \bibentry{GBM+11}         % Nipype: a flexible, lightweight  ...
+\item \bibentry{HH11}           % Neuroscience runs on GNU/Linux
+\item \bibentry{HGC+11}         % A Common, High-Dimensional Model ...
+\item \bibentry{HHH+10}         % Statistical learning analysis in neuroscience: aiming for transparency
+\item \bibentry{RHH+10}         % Six problems for causal inference from fMRI
+\item \bibentry{HHS+09a}        % PyMVPA: A Python toolbox for multivariate pattern analysis of fMRI data
+\item \bibentry{HHS+09b}        % PyMVPA: A Unifying Approach to the Analysis of Neuroscientific Data
+\item \bibentry{PHH09}          % Decoding the Large-Scale Structure of Brain Function ...
+\item \bibentry{HH08}           % Brain reading using full brain support vector machines  ...
+\item \bibentry{HHH+07}         % Bottom-up and top-down brain functional ...
+\item \bibentry{HRH+07}         % Dense mode clustering in brain maps
+\item \bibentry{TKG+00}         % Method for image coordinate definition on extended laser paths
+\item \bibentry{TKG+99}         % Approach to parallel-hierarchical network ...
+\item \bibentry{TSM+98}         % Image Segmentation on the basis of spatial connected features
+\item \bibentry{MKH97}          % The model of associative processor for numerical data sorting
 \end{bibenum}
-\cvitem{}{}
-\cvitem{}{}
+\vspace{2em}
+
+\subsection{PH.D. THESIS}
+
+\begin{bibenum}
+\item \bibentry{Hal09}          % Predictive Decoding of Neural Data
+\end{bibenum}
+\vspace{2em}
+
+%% non-peerreviewed
+%\begin{bibenum}
+%\item \bibentry{HH09}           % Advancing Neuroimaging Research with Predictive ...
+%
+%% posters
+%\item \bibentry{CWH+11}         % Scanning parameters for optimal decoding using a 32-channel head coil for fMRI
+%\item \bibentry{HHH10}          % Improving efficiency in cognitive neuroscience research with NeuroDebian
+%\item \bibentry{HMH+04}         % Structural Equation Modeling of Neuroimaging Data: ...
+%\item \bibentry{HHP04}          % Fusion of Functional Brain Imaging Modalities ...
+%
+%% conference proceedings
+%\item \bibentry{TMH+11}         % Debian Med: Integrated software environment 
+%\end{bibenum}
 
 \subsection{CHAPTERS}
-\restartlist{bibenum}
+
 \begin{bibenum}
+\item \bibentry{HHP05}          % Advanced Image Processing in Magnetic Resonance Imaging: ...
+\end{bibenum}
+\vspace{2em}
 
-\item \textbf{Wagner, D.D.} (Forthcoming) Mentalizing. In Toga \& Lieberman (Eds.), \emph{Brain Mapping: An Encyclopedic Reference}
-
-\item Heatherton, T.F., Lopez, R.B., \textbf{Wagner, D.D.} (Forthcoming) Self-regulation and self-regulation failure. In Toga \& Lieberman, \emph{Brain Mapping: An Encyclopedic Reference}. 
-
-\item \textbf{Wagner, D.D.}, Heatherton, T.F. (In Press) Self-Regulation and its Failure: Seven Deadly Threats to Self-Regulation. In Borgida \& Bargh (Eds.), \emph{APA Handbook of Personality and Social Psychology: Volume 1. Attitudes and Social Cognition}. Washington, D.C.:  American Psychological Association.
-
-\item \textbf{Wagner, D.D.}, Heatherton, T.F. (In Press). Self-Regulation and its Failures.  
-In Gazzaniga \& Mangun (Eds.), T\emph{he Cognitive Neurosciences (5th edition)}. Cambridge, MA: MIT Press.
-
-\item Arzi1, A., Banerjee, S., Cox, J.C., D'Souza, D., De Brigard, F., Doll, B.B., Fairley, J., Fleming, S.M., Herholz, S.C., King , D.R., Libby, L.A., Myers, J.C., Neta, M., Pitcher, D., Power, J.D., Rass, O., Ritchey, M., Jubal, E.R., Royston, A., \textbf{Wagner, D.D.}, Wang, W., Waring, J.D., Williams, J., Wood, S. (In Press). The significance of cognitive neuroscience: Findings, applications, and challenges. In Gazzaniga \& Mangun (Eds.), \emph{The Cognitive Neurosciences (5th edition)}. Cambridge, MA: MIT Press.
-
-\item Lopez, R.B. , \textbf{Wagner, D.D.}, Vohs, K.D., Heatherton, T.F. (In Press). Self-regulatory strength: neural mechanisms and implications for training. In Gendolla, Tops \& Koole (Eds.), \emph{Biobehavioral Foundations of Self-regulation}. Springer.
-
-\item \textbf{Wagner, D.D.}, Heatherton, T.F. (2013) Emotion and Self-Regulation Failure. In Gross (Ed), \emph{Handbook of Emotion Regulation (2nd edition)}. New York, N.Y.: Guilford Press. 
-
-\item \textbf{Wagner, D.D.}, Heatherton, T.F. (2010) Giving in to temptation: The emerging cognitive neuroscience of self regulatory failure. In Baumeister \& Vohs (Eds.), \emph{Handbook of Self Regulation: Research, theory and applications (2nd edition)}. New York, N.Y.: Guilford Press. 
-
-\item \textbf{Wagner, D.D.}, Demos, K.E., Heatherton, T.F. (2011) Staying in control: The
-cognitive neuroscience of self-regulation and its failure. In Cacioppo \& Decety
-(Eds.), \emph{Handbook of Social Neuroscience}. Oxford University Press. 
-
-\item Heatherton, T.F., Krendl, A.C., \textbf{Wagner, D.D.} (2008) Neurophysiological Approaches to Understanding Behavior. \emph{Human Behavior in a Military Context}. Washington, DC: The National Academies Press, pp. 217--238.
-
+% \restartlist{bibenum}
+% \begin{bibenum}
+% \item \textbf{Wagner, D.D.} (Forthcoming) Mentalizing. In Toga \& Lieberman (Eds.), \emph{Brain Mapping: An Encyclopedic Reference}
+% \end{bibenum}
+% \cvitem{}{}
+% \cvitem{}{}
+% 
+\subsection{INTERVIEWS}
+\sloppy
+\begin{bibenum}
+\item \bibentry{FLOSS4SCIENCE11}
+\item \bibentry{INCF11}
 \end{bibenum}
 
-\cvitem{}{}
-\cvitem{}{}
-\subsection{COMMENTARIES ON RESEARCH}
-\restartlist{bibenum}
-\begin{bibenum}
-
-\item (Commentary on \textbf{Wagner \& Heatherton, 2013}) \\ Berkman, E.T., Miller-Ziegler, J. (2013). Imaging depletion: fMRI provides new insights into the processes underlying ego depletion. \emph{Social Cognitive and Affective Neuroscience}. 8(4): 359--361.
-
-\item (Commentary on \textbf{Wagner et al. 2011}) \\ Yalachkov, Y., Naumer, M. J. (2011). Involvement of action- related brain regions in nicotine addiction. \emph{Journal of Neurophysiology}, 106(1): 1--3.
-\end{bibenum}
 
 \end{document}
 

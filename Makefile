@@ -5,13 +5,25 @@ trash+= $(proj:.ps={.bbl,.blg,.dvi,.idx,.ilg,.ind,.toc,.pdf,.aux,.out,.log})
 #stuff to install also
 dist=resume.tex ltoh.pl ltoh.specs res.cls
 
+USE_PDFTEX=1
+
 %.txt: %.html
 	lynx --dump $< >| $@
 
 
 include ../common/Makefile.common
 
+
 all:: $(proj)
+
+halchenko_vita.pdf: halchenko_vita.bbl Makefile
+#biosketch.bbl::
+	[ -e halchenko_vita.bbl ] && \
+      sed -i \
+         -e '/URL *$$/{N;s,\n,,g}' \
+         -e 's/\(Y.~O. Halchenko\)/\\textbf{\1}/g'  \
+         -e '/ ISSN /d' \
+         -e '/URL.*\(doi\.org\|cell\.com\|pubmed\|frontiersin\|poldracklab\)/d' halchenko_vita.bbl || :
 
 %.tex: Makefile
 
