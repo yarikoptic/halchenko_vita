@@ -6,14 +6,14 @@
 % License: http://creativecommons.org/licenses/by-nc-sa/3.0/
 %=============================================================
 %---Document Class
-\documentclass[11pt,letter,roman]{moderncv}
+\documentclass[11pt,letterpaper,resume,roman]{moderncv}
 % Font sizes: 10, 11, or 12; 
 % paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; 
 % font families: sans or roman
 
 
 %---Configure moderncv style
-\moderncvstyle{casual}
+\moderncvstyle{classic}
 % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
 
 \moderncvcolor{blue} 
@@ -35,8 +35,24 @@
 
 %\usepackage{hyperref}
 % \newcommand\Colorhref[3][cyan]{\href{#2}{\small\color{#1}#3}}
-% \AtBeginDocument{\hypersetup{pdfborder = 0 0 1,linkcolor=blue}}
-\usepackage{natbib}           % To make workaround work
+\AtBeginDocument{\hypersetup{pdfborder = 0 0 1,linkcolor=blue}}
+
+\usepackage{xstring}
+\def\nohttp#1{%
+    \StrSubstitute{#1}{http://}{}{}}
+%\newcommand{\pname}[1]{#1}
+%\newcommand{\purl}[2]{\pname{#1}\footnote{\url{#2}}}
+% more definetly to use hyperref -- so just a convenience to avoid
+% swapping #1 and #2 at every occurance;-)
+%\newcommand{\puurl}[2]{\href{#2}{\mbox{#1}}}
+% And this one is the first occurrence ones which we make both a hyperlink and an explicit url
+%\newcommand{\phref}[2]{\href{#2}{#1} (\href{#2}{\nohttp{#2}})}
+\newcommand{\phref}[2]{#2 (\href{#1}{#1})}
+\newcommand{\phttphref}[2]{#2 (\href{http://#1}{#1})}
+\newcommand{\phttp}[1]{\href{http://#1}{#1}}
+
+
+\usepackage[]{natbib}           % To make workaround work
 % workaround for bibentry + hyperref
 \makeatletter
 \let\saved@bibitem\@bibitem
@@ -56,9 +72,13 @@
       \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
 
 \newcommand{\hurl}[1]{\href{http://#1}{#1}}
+\def\Cplusplus{C++} % {\rm C\raise.5ex\hbox{\small ++}}}
+
+\usepackage[papersize={8.5in,11in},
+left=0.5in, right=0.5in, top=0.5in, bottom=0.7in]{geometry}
 
 %---Load packages
-\usepackage[]{a4wide}   %Wider margins
+%\usepackage[]{a4wide}   %Wider margins
 \usepackage[]{times}    %Nicer fonts
 % Provides special list environments and macros to create new ones
 \usepackage[shortlabels]{enumitem}
@@ -66,7 +86,7 @@
 
 %---Information for makecvtitle
 \firstname{Yaroslav O.} % Your first name
-\familyname{Halchenko, Ph.D.} % Your last name
+\familyname{Halchenko} % Your last name  , Ph.D.
 % All information in this block is optional, comment out any lines you don't need
 %\title{Department of Psychological and Brain Sciences, Dartmouth College}
 \address{6207 Moore Hall}{Dartmouth College}
@@ -74,7 +94,6 @@
 \phone{(603) 646-9834}
 \fax{(603) 398-1138}
 \email{career@onerussian.com}
-% TODO: make url clickable
 \homepage{haxbylab.dartmouth.edu/ppl/yarik.html}%{haxbylab.dartmouth.edu/ppl/yarik.html} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
 \extrainfo{
   \hurl{www.linkedin.com/in/yarik}
@@ -109,6 +128,9 @@
   \def\endbibsection{\oldendbibsection\vspace{-.6\baselineskip}}
   \makeatother
 
+\newcommand{\ie}[0]{\emph{i.e.},\ }
+\newcommand{\eg}[0]{\emph{e.g.},\ }
+\newcommand{\etc}[0]{\emph{etc.}}
 
 % 
 %----------------------------------------------------------------------------------------
@@ -121,10 +143,11 @@
 %\cvline{twitter.com}{\small \href{http://twitter.com/justnoticed}
 
 %---Education
+\vspace{-2em}
 \section{Education and Training}
-\tllabelcventry{2009}{2012}{2012}{Postdoctoral Fellow}{}{}{}{Department of Psychological \& Brain Sciences, Dartmouth College\newline Adviser: \href{mailto:James.V.Haxby@dartmouth.edu}{Dr. James V. Haxby}}
-\tllabelcventry{2004}{2009}{2009}{Ph.D. in Computer Science}{}{}{}{Computer Science Department, NJIT (NJ Institute of Technology)\newline Adviser: \href{mailto:jose@rubic.rutgers.edu}{Dr. Stephen J. Hanson}, Rutgers-Newark}
-\tllabelcventry{2000}{2003}{2003}{M.S. in Computer Science}{}{}{}{Computer Science Department, UNM (University of New Mexico)\newline Adviser: \href{mailto:barak@cs.nuim.ie}{Dr. Barak Pearlmutter}}
+\tllabelcventry{2009}{2012}{\hspace{-1.5em}2012-2013}{Postdoctoral Fellow}{}{}{}{Department of Psychological \& Brain Sciences, Dartmouth College\newline Adviser: \href{mailto:James.V.Haxby@dartmouth.edu}{Dr. James V. Haxby}}
+\tllabelcventry{2004}{2009}{\hspace{-1em}2004-2009}{Ph.D. in Computer Science}{}{}{}{Computer Science Department, NJIT (NJ Institute of Technology)\newline Adviser: \href{mailto:jose@rubic.rutgers.edu}{Dr. Stephen J. Hanson}, Rutgers-Newark}
+\tllabelcventry{2000}{2003}{\hspace{-1.5em}2000-2003}{M.S. in Computer Science}{}{}{}{Computer Science Department, UNM (University of New Mexico)\newline Adviser: \href{mailto:barak@cs.nuim.ie}{Dr. Barak Pearlmutter}}
 \tllabelcventry{1994}{1999}{1999}{M.S. in Laser and Optoelectronic Engineering}{}{}{}{Computer Systems Department, VSTU (Vinnytsia State Technical University), Ukraine}
 \tldatecventry{1994}{Graduated with honors}{}{}{}{Physics and Mathematical Gymnasia No.17, Ukraine}
 
@@ -141,74 +164,214 @@
 \section{Employment}
 
 %\cventry{2013--present}
-\tlcventry{2013}{0}{Research Scientist}{}{}{}{Department of Psychological \& Brain Sciences, Dartmouth College
-\begin{itemize}
+\tlcventry{2013}{0}{Research Scientist}{}{}{Department of Psychological \& Brain Sciences, Dartmouth College}{
+\begin{itemize}[leftmargin=1em,parsep=0em]
 \item Visual perception: effects of familiarity on face identification
-\item Software framework for statistical analysis of neural data: \href{http://pymvpa.org}{PyMVPA}
-\item Turnkey software platform for neuroscience: \href{http://neuro.debian.net}{NeuroDebian}
+  [\ref{GGH+13}, \ref{GGH+13b}]
+\item Participating in lab's methodological developments for
+  neuroimaging data analysis: hyperalignment [\ref{HGC+11}], RSA [\ref{CGG+12}], clustering, \etc
+\item Software framework for statistical analysis of neural data:
+  \phttphref{pymvpa.org}{PyMVPA} [\ref{HHS+09a}, \ref{HHS+09b}]
+\item Turnkey software platform for neuroscience: \phttphref{neuro.debian.net}{NeuroDebian} [\ref{HH12}]
 \end{itemize}
 }
 
-\tllabelcventry{2003}{2009}{2003--2009}{Research Assistant}{}{}{}%
-{\href{http://www.rumba.rutgers.edu}{Mind/Brain RUMBA Laboratory}, Rutgers-Newark, NJ
-   \begin{itemize}
+\tllabelcventry{2005}{2009}{\hspace{-1.5em}2005-2009}{High-throughput Cluster System Administrator}{}{}{Rutgers-Newark, NJ}{
+%  \begin{itemize}
+%  \item 
+Deployment and maintenance of 27 node high availability cluster running GNU/Linux Debian OS
+%  \end{itemize}
+}
+
+\tllabelcventry{2003}{2009}{\hspace{-1.2em}2003-2009}{Research Assistant}{}{}%
+{\href{http://www.rumba.rutgers.edu}{Mind/Brain RUMBA Laboratory}, Rutgers-Newark, NJ}{
+   \begin{itemize}[leftmargin=1em,parsep=0em]
    \item Predictive decoding and fusion of the neural data from and
      across different imaging modalities (e.g. EEG, fMRI) to gain
      better understanding of perception (e.g. auditory) and cognitive
-     (e.g. category specific processing) neuroscientific problems
-   \item Graphical modeling of functional brain organization \\
-   \end{itemize}}
+     (e.g. category specific processing) neuroscientific problems [\ref{PHH09}-\ref{HRH+07}]
+   \item Graphical modeling of functional brain organization [\ref{RHH+10}]
+   \end{itemize}
+}
 
-\tllabelcventry{2005}{2009}{2005--2009}{Computing Cluster System Administrator}{}{}{}%
-{Rutgers-Newark, NJ
-  \begin{itemize}
-  \item Deployment and maintenance of 27 node high availability
-    cluster running GNU/Linux Debian OS.
-  \end{itemize}}
-
-\tllabelcventry{2000}{2002}{2000--2002}{Research Assistant}{}{}{}%
-{\href{http://www-bcl.cs.unm.edu}{Brain and Computation Laboratory}, UNM Albuquerque, NM
-  \begin{itemize}
-  \item Implementation and deployment of ICA (Independent Component
+\tllabelcventry{2000}{2002}{\hspace{-1.5em}2000-2002}{Research Assistant}{}{}
+{\href{http://www-bcl.cs.unm.edu}{Brain and Computation Laboratory}, UNM Albuquerque, NM}{
+  %\begin{itemize}
+  %\item 
+   Implementation and deployment of ICA (Independent Component
    Analysis) techniques for processing of MEG (Magnetoencephalography)
-   data as a part of the DreamMon project.
-  \end{itemize}}
+   data as a part of the DreamMon project
+  %\end{itemize}
+}
 
-\tllabelcventry{1996}{1997}{1996--1997}{Software Developer}{}{}{}%
-{%\href{http://www-bcl.cs.unm.edu}{Brain and Computation Laboratory},
- \href{http://www.webliana.com.ua}{Liana Company}, Vinnytsia, Ukraine
-  \begin{itemize}
-  \item Software developer of automated system for Planned-Economic
-    Department of Vinnytsia Chemical Plant (Himprom).
-  \end{itemize}}
+\tllabelcventry{1996}{1997}{\hspace{-1.5em}1996-1997}{Software Developer}{}{}%
+{%\phttphref{www-bcl.cs.unm.edu}{Brain and Computation Laboratory},
+ \href{http://www.webliana.com.ua}{Liana Company}, Vinnytsia, Ukraine}{
+%  \begin{itemize}
+%  \item
+ Automated system for Planned-Economic Department of Vinnytsia Chemical Plant (Himprom)
+%  \end{itemize}
+}
 
 
 \tllabelcventry{1993}{1997}{1993--1997}{Research Assistant}{}{}{}%
-{VSTU, Vinnytsia, Ukraine
-  \begin{itemize}
-  \item Software developer of the system for diagnostics of vertebral
-    column. System later was utilized in national hospitals of
-    Ukraine.
-  \end{itemize}}
+{VSTU, Vinnytsia, Ukraine\\
+  %\begin{itemize}
+  %\item Software developer of the 
+   System for diagnostics of vertebral column. System later was utilized in national hospitals of
+    Ukraine
+%  \end{itemize}
+}
 
-% \section{Professional Community Activities}
-% moved to Service and Outreach
+\section{Technical Skills}
 
-%---Awards and fellowships
-\section{Awards, Honors \& Fellowships}
-\tllabelcventry{1998}{1999}{1998}{Fellow}{The International Scientific Fund Representatives in Ukrainian Studentship Award}{}{}{}
-\tldatecventry{1996}{Award}{}{}{The Academy of Sciences of Ukraine}{Project: \emph{Information-Measuring System With Optical Transformation Biomedical Information}}{}
-\tldatecventry{1995}{6th place}{}{}{ACM South-Eastern European Regional Programming Contest}{1st place at VSTU}
-\tllabelcventry{1995}{1996}{1995}{Fellow}{The International Soros Science Educational Program (ISSEP) Studentship Award}{}{}{}
-\tldatecventry{1995}{4th place}{Physics Contest among Colleges and Universities of Ukraine}{}{}{1st place at VSTU}
-\tldatecventry{1994}{1st place}{Regional Programming Contest}{}{}{}
-\tldatecventry{1993}{3rd place}{Regional Physics Contest}{}{}{}
+\cvitem{Programming}{\vspace{-2em}
+\begin{itemize}[leftmargin=1em,parsep=0em]
+\item More than 13 years of experience with software
+  development under GNU/Linux OS:  Python, shell
+  scripting, version control systems (CVS, subversion, git,
+  git-annex), debugging (gdb, pdb, bashdb, ddd), troubleshooting
+  (valgrind, strace), profiling, \emph{etc.}
+\item Years of use and contributions to a wide-range of Python
+  libraries for generic (\eg\ NumPy, SciPy, sklearn, pandas,
+  statsmodels) and neuroimaging-oriented (\eg nibabel, nipy, nipype)
+  scientific Python libraries
+\item Experience with generic build frameworks (make, cmake),
+  continuous integration platforms (\emph{e.g.} buildbot,
+  \href{http://travis-ci.org}{Travis})
+\item Varying programming experience in other functional (ELisp,
+  Standard ML) and imperative (C/\Cplusplus(g++), Java, JavaScript,
+  Perl, PHP) languages, and computational environments (Matlab/Octave)
+\item Past working experience in software development on MS DOS and
+  Windows Platforms (Turbo Pascal, VBA, Inprise Delphi) and Database
+  design (DBE, ODBC, Postresql, MySQL)
+\item Strong background in object-oriented programming methods
+  and Design Patterns
+\item Experienced writer of high quality well documented code. Coding
+  practice includes peer programming, code reviews, careful
+  troubleshooting and debugging of own code and code of others, bug
+  triaging, profiling, versioning, unit-, doc- and regression testing,
+  release management
+\end{itemize}
+}
+\vspace{-1em}
+\cvitem{Systems Administration}{\vspace{-2em}
+\begin{itemize}[leftmargin=1em,parsep=0em]
+\item Servers and high throughput clusters administration and
+  monitoring (DNS, NFS, SSH, NAT, Torque, Ganglia, Maui, SGE,
+  HTCondor)
+\item Automated provisioning of bare and virtualized deployments
+  (Debian FAI, cfengine2, Ansible)
+\end{itemize}
+}
+
+\section{Grant Proposals Writing}
+
+\cvitem{PI/Co-PI}{Composed and submitted two NSF and three NIH (R01) proposals}
+\cvitem{Sub-contract PI}{Participated in two BD2K NIH proposals}
+\cvitem{Pre-app.}{Moore foundation, NSF BRAIN EAGER}
+
+\section{Professional Activities}
+
+\subsection*{SERVICE \& OUTREACH}
+\tlcventry{2013}{0}{Contributor}{}{\phttphref{nipy.bic.berkeley.edu}{Nibotmi}}{}%
+{
+  Continuous integration (CI) service initiated by Matthew Brett (UC
+  Berkeley) to solidify quality assurance of scientific Python
+  projects.  My contribution is in establishing CI for various
+  projects (\eg\ sklearn, pandas) with accent on testing on exotic
+  hardware platforms such as UltraSPARC}
+
+\tlcventry{2013}{0}{Founder/Leading Developer}{}{\phttphref{yarikoptic.github.io/numpy-vbench}{NumPy Benchmarking}}{}%
+{
+    \href{http://numpy.org}{NumPy} is the core computational library used by Python community.
+    I have established a service continuously benchmarking NumPy
+    functionality across different development branches to guarantee
+    absent performance regressions
+}
+
+\tlcventry{2011}{0}{Initiator}{}{\phttphref{github.com/nipy/nipy-artwork}{NiPy Artwork}}{}%
+{%
+    Promotional and informative materials for Python-based scientific software
+    projects in
+    \href{http://www.onerussian.com/tmp/nipy-handout.pdf}{neuroimaging}
+    and
+    \href{http://www.onerussian.com/tmp/eppy-handout.pdf}{electrophysiology}%
+}
+
+\tlcventry{2007}{0}{Founder/Leading Developer}{}{\phttphref{www.pymvpa.org}{PyMVPA}}{}%
+{ A Python framework to streamline application of classical and novel
+  statistical learning methods for the analysis of neural data.
+  PyMVPA has a world-wide user base and empowered numerous studies
+  (see \phttp{www.pymvpa.org/whoisusingit.html})
+}
+
+\tlcventry{2007}{0}{Founder/Leading Developer}{}{\phttphref{neuro.debian.net}{NeuroDebian}}{}%
+{ %\begin{itemize}[leftmargin=1em,parsep=0em]
+  NeuroDebian project builds atop of Debian to provide scientific
+  community with a turnkey Free and Open-source Software (FOSS)
+  platform for neuroscience (and beyond) [\ref{HH12},
+  \ref{SFN13}-\ref{INCF11}]
+  \begin{itemize}[leftmargin=1em,parsep=0em]
+    \item Consulting FOSS projects on aspects of legal assurance
+      (copyright/licenses), deployment, and quality assurance
+    \item Integration and maintenance of (scientific) free and
+      open-source software within the Debian GNU/Linux OS (AFNI,
+      nibabel, nipy, PsychoPy, \etc)
+    \item Mentoring and sponsoring uploads of contributions
+      (OpenSesame, Stimfit, OpenWalnut, \etc) to Debian and
+      NeuroDebian repositories
+%    \item Provisioning VirtualBox appliance for NeuroDebian
+%      deployments on Windows and OSX
+    \end{itemize}
+  %\citep{HH12,SFN13,FLOSS4SCIENCE11,INCF11} for more information.
+  \begin{description}[leftmargin=1em,parsep=0em]
+  \item[Popularity] Complete number of ``downloads'' or installations of
+    NeuroDebian-maintained software is impossible to assess because
+    majority of packages is also uploaded to official Debian
+    distribution and thus made available from any of its more than 130
+    derivative distributions (such as Ubuntu).  Main NeuroDebian website
+    is accessed by more than 13,000 unique IPs each month, is mirrored
+    by 8 contributors world-wide, and receives more than 700 of periodic
+    \href{http://neuro.debian.net/popularity.html\#popularity-contest}{voluntary
+      ``popularity contest'' submissions}.
+    See also \phttphref{neuro.debian.net/testimonials.html}{NeuroDebian users' testimonials}
+%  \item[Activities]\hspace{1em}
+  \item[Outreach] Since 2010 hosted booth exhibits at annual meetings of
+    Society for Neuroscience and Organization for Human Brain Mapping
+  \end{description}
+}
+
+\tlcventry{2005}{0}{Developer}{}{\phttphref{www.debian.org}{Debian Project}}{}{
+  A widely popular community-driven GNU/Linux distribution with over a hundred of
+  derivative distributions and millions of users
+}
+
+\tlcventry{2005}{0}{Leading Developer}{}{\phttphref{www.fail2ban.org}{Fail2Ban Project}}{}{
+  A popular intrusion prevention system possibly having millions of users
+}
+
+\tlcventry{2004}{0}{FOSS Contributor}{}{}{}%
+{ I have contributed minor fixes and improvements to nearly a hundred
+  of FOSS projects.  See \phttp{www.ohloh.net/accounts/yarikoptic} for an overview.
+}
 
 
-\section{Professional Activities, Memberships, Service \& Outreach}
+\vspace{1em}
+
+%\subsection*{EXHIBITING EXPERIENCE}
+%\tlcventry{2010}{0}{}{\href{http://neuro.debian.net}{NeuroDebian}}{}{}{
+%Booth exhibits at Society for Neuroscience and Organization for Human Brain Mapping meetings}{}
+
 %\cvitem{AD-HOC REVIEWER}{}
-\subsection*{AD-HOC REVIEWER}
-\cvitem{Journals}{
+\subsection*{EDITING AND REVIEWING}
+\cvitem{Guest Editor}{\href{http://www.frontiersin.org/neuroinformatics/researchtopics/python_in_neuroscience_ii/1591}{Python
+    in Neuroscience II} special issue, Frontiers in Neuroscience \& Brain Imaging Methods}
+
+%\subsection*{REVIEW EDITOR}
+\cvitem{Review editor}{Frontiers in Brain Imaging Research}
+
+\cvitem{Ad-hoc reviewer for journals}{
 Brain Structure and Function,
 Frontiers in Neuroinformatics,
 Human Brain Mapping,
@@ -225,83 +388,26 @@ SPIE
 
 \cvitem{Conference Abstracts}{NIPS, SciPy}
 
-\subsection*{REVIEW EDITOR}
+\subsection*{MEMBERSHIPS}
 
-\cvitem{Journals}{Frontiers in Brain Imaging Research}
-
-\subsection*{GUEST EDITOR}
-\cvitem{}{\href{http://www.frontiersin.org/neuroinformatics/researchtopics/python_in_neuroscience_ii/1591}{Python
-    in Neuroscience II} special issue, Frontiers in Neuroscience \& Brain Imaging Methods}
-
-\subsection*{PAST AND CURRENT SOCIETY MEMBERSHIPS}
-\cvitem{}{
+\cvitem{Active}{
+  \href{https://www.python.org/psf}{Python Software Foundation}, INCF \href{http://www.incf.org/programs/datasharing/neuroimaging-task-force}{Standards for Data Sharing (Neuroimaging taskforce)}
+}
+%\subsection*{PAST AND CURRENT SOCIETY MEMBERSHIPS}
+\cvitem{Past}{
 Association for Psychological Science,
 Organization for Human Brain Mapping,
 Society for Neuroscience,
 Ukraine Small Academy of Sciences
 }
 
-\subsection*{SERVICE \& OUTREACH}{}
-%\cventry{2009-2010}{}{}{Organizer, fMRI methods Series,}{Dartmouth College}{}
-%\cventry{2008-2009}{}{}{}{Appointed representative to the Graduate Committee, Dartmouth College}{}
-%\cventry{2008-2009}{}{}{Organizer, Graduate Research Roundtable,}{Dartmouth College}{}
-%\cventry{2008-2009}{}{}{Organizer, Social Brain Sciences Series,}{Dartmouth College}{}
-%\cventry{2006-2009}{}{}{Organizer, Department Colloquia Committee,}{Dartmouth College}{}
-%\cventry{2005}{}{}{Organizer, Brain Awareness Week,}{Society for Neuroscience, Montreal}{}
-%\cventry{2004}{}{}{Instructor, Brain Awareness Week,}{Society for Neuroscience, Montreal}{}
-
-\tlcventry{2014}{0}{Member}{\href{https://www.python.org/psf}{Python Software Foundation}}{}{}{}
-\tlcventry{2011}{0}{Member}{\href{http://www.incf.org/programs/datasharing/neuroimaging-task-force}{Standards
-    for Data Sharing (Neuroimaging taskforce)}}{}{}{International
-  Neuroinformatics Coordination Facility (INCF)}{}
-%\tlcventry{2011}{0}{Initiator}{\href{https://github.com/nipy/nipy-artwork}{Promotional and informative
-%  materials for Python-based scientific software
-%  projects in neuroscience}}{}{}
-\tlcventry{2010}{0}{Exhibitor}{\href{http://neuro.debian.net}{NeuroDebian}}{}{}{Society for Neuroscience and Organization for Human Brain Mapping meetings}{}
-\tlcventry{2005}{0}{Debian Developer}{}{\href{http://www.debian.org}{Debian Project}}{}%
-{ \begin{itemize}
-  \item Integration and maintenance of (scientific) free and
-    open-source software within the Debian GNU/Linux OS.
-  \end{itemize}}
-
-
-\section{Didactic Activities} % Teaching \& Lecturing}
-
-\tldatecventry{2014}{Co-lecturer}{\href{http://www.h-w-k.de/index.php?id=2058}{PyMVPA
-    Workshop}}{}{}{Hanse-Wissenschaftskolleg Institute for Advanced
-  Study, Delmenhorst Germany}
-% TODO: TA for Jim's 2013 Fall MVPA class?
-\tldatecventry{2012}{Co-lecturer}{PyMVPA Workshop}{}{}{Center for
-  Behavioral Brain Sciences, Magdeburg Germany}
-\tldatecventry{2010}{Co-lecturer}{PyMVPA Workshop}{}{}{Psychology and
-  Brain Sciences, Dartmouth College, Hanover USA}
-\tldatecventry{2000}{Teaching Assistant}{Intermediate Programming
-  (CS251)}{}{}{\href{mailto:TODO}{Prof. David Ackley}, Computer Science Department, UNM}
-\tlcventry{2012}{0}{}{PBS Department, Dartmouth College}{Consulting undergraduate and graduate students in
-  application of statistical learning methodologies in their
-  neuroimaging-based research}{}{}
-
-% \subsection{Mentoring}
-
-%---Talks and Symposia
-\section{Recent Talks}
-
-\tldatecventry{2014}{PyCon 2014}{Montr\'eal, Canada}{}{}{}
-\tldatecventry{2014}{SRI International}{Menlo Park, CA}{}{}{}
-\tldatecventry{2013}{SEA Software Engineering Conference}{UCAR}{Boulder, CO}{}{}
-\tldatecventry{2012}{INCF Bootcamp 2012}{Munich, Germany}{}{}{}
-\tldatecventry{2013}{University of Pennsylvania}{Philadelphia, PA}{}{}{}
-\tldatecventry{2011}{Annual Meeting of Society for Neuroscience}{Washington, DC}{}{}{}
-\tldatecventry{2011}{EuroSciPy satellite ``Python in Neuroscience''}{Paris, France}{}{}{}
-\tldatecventry{2011}{EuroSciPy}{Paris, France}{}{}{}
-\tldatecventry{2011}{DebConf10}{New York, NY}{}{}{}
-\tldatecventry{2009}{Dartmouth College}{Hanover, NH}{}{}{}
-\tldatecventry{2009}{Berkeley}{CA}{}{}{}
-\tldatecventry{2009}{University of Hawaii at Manoa}{Honolulu, HI}{}{}{}
+%\subsection*{GUEST EDITOR}
 
 \section{Publications}
 
 % TODO: add a reference to Google scholar and state h-index
+%\cvitem{\href{http://scholar.google.com/citations?user=EbtfZcwAAAAJ}{Google
+%    Scholar}}{h-index: 11 \hspace{2em} i10-index: 12}
 
 \bibliographystyle{abbrvnat}    % also puts URLS out
 %\bibliographystyle{apalike}
@@ -313,81 +419,149 @@ Ukraine Small Academy of Sciences
     \nobibliography{haxbylab}
   \endgroup
 
-\subsection{PEER-REVIEWED ARTICLES}
+\subsection{SELECTED PEER-REVIEWED ARTICLES (\href{http://scholar.google.com/citations?user=EbtfZcwAAAAJ}{Google
+    Scholar h-index}: 11)}
 
 % useful DOI
 \renewcommand{\doi}[1]{{doi:~\href{http://dx.doi.org/#1}{#1}}}
 \renewcommand{\url}[1]{\href{#1}{#1}}
+\newcommand{\rbibentry}[1]{\label{#1}\bibentry{#1}} % so we could
+                                % reference them. natbib doesn't know
+                                % the order for some reason
 
 \sloppy
-\begin{bibenum}
+\begin{bibenum}[ref=\arabic*,parsep=-0.4em]
 %\begin{enumerate}[leftmargin=7em,parsep=0em]
-\item \bibentry{GGH+13}         % Processing of invisible social cues
-\item \bibentry{KFR+13}         % Pattern classification precedes ...
-\item \bibentry{GGH+13b}        % Prioritized Detection of Personally Familiar Faces
-\item \bibentry{CGG+12}         % Representation of biological classes in the human brain
-\item \bibentry{HH12}           % Open is not enough. ...
-\item \bibentry{PBG+12}         % Data sharing in neuroimaging research
-\item \bibentry{GBM+11}         % Nipype: a flexible, lightweight  ...
-\item \bibentry{HH11}           % Neuroscience runs on GNU/Linux
-\item \bibentry{HGC+11}         % A Common, High-Dimensional Model ...
-\item \bibentry{HHH+10}         % Statistical learning analysis in neuroscience: aiming for transparency
-\item \bibentry{RHH+10}         % Six problems for causal inference from fMRI
-\item \bibentry{HHS+09a}        % PyMVPA: A Python toolbox for multivariate pattern analysis of fMRI data
-\item \bibentry{HHS+09b}        % PyMVPA: A Unifying Approach to the Analysis of Neuroscientific Data
-\item \bibentry{PHH09}          % Decoding the Large-Scale Structure of Brain Function ...
-\item \bibentry{HH08}           % Brain reading using full brain support vector machines  ...
-\item \bibentry{HHH+07}         % Bottom-up and top-down brain functional ...
-\item \bibentry{HRH+07}         % Dense mode clustering in brain maps
-\item \bibentry{TKG+00}         % Method for image coordinate definition on extended laser paths
-\item \bibentry{TKG+99}         % Approach to parallel-hierarchical network ...
-\item \bibentry{TSM+98}         % Image Segmentation on the basis of spatial connected features
-\item \bibentry{MKH97}          % The model of associative processor for numerical data sorting
+\item \rbibentry{GGH+13}         % Processing of invisible social cues
+\item \rbibentry{KFR+13}         % Pattern classification precedes ...
+\item \rbibentry{GGH+13b}        % Prioritized Detection of Personally Familiar Faces
+\item \rbibentry{CGG+12}         % Representation of biological classes in the human brain
+\item \rbibentry{HH12}           % Open is not enough. ...
+\item \rbibentry{PBG+12}         % Data sharing in neuroimaging research
+\item \rbibentry{GBM+11}         % Nipype: a flexible, lightweight  ...
+\item \rbibentry{HH11}           % Neuroscience runs on GNU/Linux
+\item \rbibentry{HGC+11}         % A Common, High-Dimensional Model ...
+\item \rbibentry{HHH+10}         % Statistical learning analysis in neuroscience: aiming for transparency
+\item \rbibentry{RHH+10}         % Six problems for causal inference from fMRI
+\item \rbibentry{HHS+09a}        % PyMVPA: A Python toolbox for multivariate pattern analysis of fMRI data
+\item \rbibentry{HHS+09b}        % PyMVPA: A Unifying Approach to the Analysis of Neuroscientific Data
+\item \rbibentry{PHH09}          % Decoding the Large-Scale Structure of Brain Function ...
+\item \rbibentry{HH08}           % Brain reading using full brain support vector machines  ...
+\item \rbibentry{HHH+07}         % Bottom-up and top-down brain functional ...
+\item \rbibentry{HRH+07}         % Dense mode clustering in brain maps
+%\item \rbibentry{TKG+00}         % Method for image coordinate definition on extended laser paths
+%\item \rbibentry{TKG+99}         % Approach to parallel-hierarchical network ...
+%\item \rbibentry{TSM+98}         % Image Segmentation on the basis of spatial connected features
+%\item \rbibentry{MKH97}          % The model of associative processor for numerical data sorting
 \end{bibenum}
-\vspace{2em}
+\vspace{1em}
 
 \subsection{PH.D. THESIS}
 
-\begin{bibenum}
-\item \bibentry{Hal09}          % Predictive Decoding of Neural Data
+\begin{bibenum}[ref=\arabic*,parsep=-0.4em]
+\item \rbibentry{Hal09}          % Predictive Decoding of Neural Data
 \end{bibenum}
-\vspace{2em}
+\vspace{1em}
 
 %% non-peerreviewed
 %\begin{bibenum}
-%\item \bibentry{HH09}           % Advancing Neuroimaging Research with Predictive ...
+%\item \rbibentry{HH09}           % Advancing Neuroimaging Research with Predictive ...
 %
 %% posters
-%\item \bibentry{CWH+11}         % Scanning parameters for optimal decoding using a 32-channel head coil for fMRI
-%\item \bibentry{HHH10}          % Improving efficiency in cognitive neuroscience research with NeuroDebian
-%\item \bibentry{HMH+04}         % Structural Equation Modeling of Neuroimaging Data: ...
-%\item \bibentry{HHP04}          % Fusion of Functional Brain Imaging Modalities ...
+%\item \rbibentry{CWH+11}         % Scanning parameters for optimal decoding using a 32-channel head coil for fMRI
+%\item \rbibentry{HHH10}          % Improving efficiency in cognitive neuroscience research with NeuroDebian
+%\item \rbibentry{HMH+04}         % Structural Equation Modeling of Neuroimaging Data: ...
+%\item \rbibentry{HHP04}          % Fusion of Functional Brain Imaging Modalities ...
 %
 %% conference proceedings
-%\item \bibentry{TMH+11}         % Debian Med: Integrated software environment 
+%\item \rbibentry{TMH+11}         % Debian Med: Integrated software environment 
 %\end{bibenum}
 
 \subsection{CHAPTERS}
 
-\begin{bibenum}
-\item \bibentry{HHP05}          % Advanced Image Processing in Magnetic Resonance Imaging: ...
+\begin{bibenum}[ref=\arabic*,parsep=-0.4em]
+\item \rbibentry{HHP05}          % Advanced Image Processing in Magnetic Resonance Imaging: ...
 \end{bibenum}
-\vspace{2em}
+\vspace{1em}
 
-% \restartlist{bibenum}
-% \begin{bibenum}
-% \item \textbf{Wagner, D.D.} (Forthcoming) Mentalizing. In Toga \& Lieberman (Eds.), \emph{Brain Mapping: An Encyclopedic Reference}
-% \end{bibenum}
-% \cvitem{}{}
-% \cvitem{}{}
-% 
 \subsection{INTERVIEWS}
 \sloppy
-\begin{bibenum}
-\item \bibentry{FLOSS4SCIENCE11}
-\item \bibentry{INCF11}
+\begin{bibenum}[ref=\arabic*,parsep=-0.4em]
+\item \rbibentry{SFN13}
+\item \rbibentry{FLOSS4SCIENCE11}
+\item \rbibentry{INCF11}
 \end{bibenum}
+\vspace{1em}
 
+
+%---Talks and Symposia
+\section{Invited Talks}
+
+% not detailed one
+% \tldatecventry{2014}{PyCon 2014}{Montr\'eal, Canada}{}{}{}
+% \tldatecventry{2014}{SRI International}{Menlo Park, CA}{}{}{}
+% \tldatecventry{2013}{SEA Software Engineering Conference}{UCAR}{Boulder, CO}{}{}
+% \tldatecventry{2013}{University of Pennsylvania}{Philadelphia, PA}{}{}{}
+% \tldatecventry{2012}{INCF Bootcamp 2012}{Munich, Germany}{}{}{}
+% \tldatecventry{2011}{Annual Meeting of Society for Neuroscience}{Washington, DC}{}{}{}
+% \tldatecventry{2011}{EuroSciPy satellite ``Python in Neuroscience''}{Paris, France}{}{}{}
+% \tldatecventry{2011}{EuroSciPy}{Paris, France}{}{}{}
+% \tldatecventry{2011}{DebConf10}{New York, NY}{}{}{}
+% \tldatecventry{2009}{Dartmouth College}{Hanover, NH}{}{}{}
+% \tldatecventry{2009}{Berkeley}{CA}{}{}{}
+% \tldatecventry{2009}{University of Hawaii at Manoa}{Honolulu, HI}{}{}{}
+
+%\tldatecventry{2014}{PyCon 2014}{Fail2Ban -- keep your boxes skiddie-free}{}{Montr\'eal, Canada}{}
+\tldatecventry{2014}{SRI International}{From statistical learning to an open-source, turnkey platform for neuroimaging}{}{Menlo Park, CA}{}
+\tldatecventry{2013}{SEA Software Engineering Conference}{Open is not enough: benefits from Debian as an integrated, community-driven computing platform}{}{UCAR,Boulder, CO}{\phttp{sea.ucar.edu/event/open-not-enough-benefits-debian-integrated-community-driven-computing-platform}}
+\cventry{}{University of Pennsylvania}{Environments for efficient contemporary research in neuroimaging}{}{Philadelphia, PA}{}
+\tldatecventry{2012}{INCF Bootcamp 2012}{Applied NeuroDebian: Python in Neuroimaging}{}{Munich, Germany}{}
+% \tldatecventry{2011}{Annual Meeting of Society for Neuroscience}{Multivariate analysis strategies of neuroimaging data in PyMVPA}{}{Washington, DC}{}
+% \tldatecventry{2011}{EuroSciPy satellite ``Python in Neuroscience''}{The virtues and sins of PyMVPA}{}{Paris, France}{}
+\tldatecventry{2011}{EuroSciPy}{$\pi$`s in Debian or Scientific Debian: NumPy, SciPy and beyond}{}{Paris, France}{}
+% \tldatecventry{2011}{DebConf10}{Debian: The ultimate platform for neuroimaging research}{}{New York, NY}{}
+% \tldatecventry{2009}{Dartmouth College}{An ecosystem of neuroimaging, statistical learning, and open-source software to make research more efficient, more open, and more fun}{}{Hanover, NH}{}
+\tldatecventry{2009}{UC Berkeley}{Reliable Decoding of Neural Data}{}{Berkeley, CA}{}
+\cventry{}{University of Hawaii at Manoa}{PyMVPA: Fathom Brain Function through Multivariate Pattern Analysis}{}{Honolulu, HI}{}
+
+\section{Didactic Activities} % Teaching \& Lecturing}
+
+\tlcventry{2012}{0}{}{PBS Department, Dartmouth College}{Consulting undergraduate and graduate students in
+  application of statistical learning methodologies in their
+  neuroimaging-based research}{}{}
+\tllabelcventry{2010}{0}{}{Co-lecturer}{PyMVPA Workshops}{}{}{
+2014. Hanse-Wissenschaftskolleg Institute for Advanced Study, Delmenhorst Germany\\
+2012. Center for Behavioral Brain Sciences, Magdeburg Germany \\
+2010. Psychology and Brain Sciences, Dartmouth College, Hanover USA
+}
+% TODO: TA for Jim's 2013 Fall MVPA class?
+%\tldatecventry{2012}{Co-lecturer}{PyMVPA Workshop}{}{}{Center for Behavioral Brain Sciences, Magdeburg Germany}
+%\tldatecventry{2010}{Co-lecturer}{PyMVPA Workshop}{}{}{Psychology and Brain Sciences, Dartmouth College, Hanover USA}
+\tldatecventry{2000}{Teaching Assistant}{Intermediate Programming
+  (CS251)}{}{}{\href{mailto:TODO}{Prof. David Ackley}, Computer Science Department, UNM}
+
+
+% \section{Professional Community Activities}
+% moved to Service and Outreach
+
+%---Awards and fellowships
+\section{Awards, Honors \& Fellowships}
+\tldatecventry{1998}{Fellow}{The International Scientific Fund Representatives in Ukrainian Studentship Award}{}{}{}
+\tldatecventry{1996}{Award}{}{}{The Academy of Sciences of Ukraine}{Project: \emph{Information-Measuring System With Optical Transformation Biomedical Information}}{}
+\tldatecventry{1995}{Fellow}{The International Soros Science Educational Program (ISSEP) Studentship Award}{}{}{}
+          \cventry{}{6th place}{}{}{ACM South-Eastern European Regional Programming Contest}{1st place at VSTU}
+          \cventry{}{4th place}{Physics Contest among Colleges and Universities of Ukraine}{}{}{1st place at VSTU}
+\tldatecventry{1994}{1st place}{Regional Programming Contest}{}{}{}
+\tldatecventry{1993}{3rd place}{Regional Physics Contest}{}{}{}
+
+
+
+% Outside interests/activities
+\section{Extra Qualifications}
+
+\cvitem{Languages}{Fluent in Russian, Ukrainian and English.}
+\cvitem{Hobbies}{Major contributor to the
+  \href{http://neuro.debian.net/coffeeart.html}{Coffee Art Collection}}
 
 \end{document}
 

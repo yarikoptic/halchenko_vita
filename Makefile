@@ -23,7 +23,9 @@ halchenko_vita.pdf: halchenko_vita.bbl Makefile
          -e '/URL *$$/{N;s,\n,,g}' \
          -e 's/\(Y.~O. Halchenko\)/\\textbf{\1}/g'  \
          -e '/ ISSN /d' \
-         -e '/URL.*\(doi\.org\|cell\.com\|pubmed\|frontiersin\|poldracklab\)/d' halchenko_vita.bbl || :
+         -e '/URL.*\(doi\.org\|cell\.com\|pubmed\|frontiersin\|poldracklab\)/d' \
+		 -e 's/URL //g' \
+	     halchenko_vita.bbl || :
 
 %.tex: Makefile
 
