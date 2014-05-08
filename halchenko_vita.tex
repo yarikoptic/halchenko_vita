@@ -132,35 +132,32 @@ left=0.5in, right=0.5in, top=0.5in, bottom=0.7in]{geometry}
 \newcommand{\eg}[0]{\emph{e.g.},\ }
 \newcommand{\etc}[0]{\emph{etc.}}
 
+
+\newcommand{\ytllabelcventry}[9]{\tllabelcventry{#1}{#2}{\hspace{#3}#4}{#5}{#6}{#7}{#8}{#9}}
+
+% if boring numbers is desired
+%\def\boringnumbers{}
+\ifdefined\boringnumbers%
+\renewcommand{\ytllabelcventry}[9]{\cventry{#4}{#5}{#6}{#7}{#8}{#9}}%
+\renewcommand{\tldatecventry}[6]{\cventry{#1}{#2}{#3}{#4}{#5}{#6}}%
+\renewcommand{\tlcventry}[7]{\cventry{#1--\ifthenelse{\equal{#2}{0}}{current}{#2}}{#3}{#4}{#5}{#6}{#7}}%
+\fi
+
 % 
 %----------------------------------------------------------------------------------------
 \begin{document}
 \makecvtitle % Print the CV title
 
-% ideas: Professional network
-%\cvline{Linkedin.com}{\small \href{http://www.linkedin.com/in/adamatan}             {Adam Matan}   - Professional profile and links.    }
-%\cvline{Stackoverflow.com}{\small \href{http://stackoverflow.com/users/51197/adam-matan} {Adam Matan}   - My software questions and answers. }
-%\cvline{twitter.com}{\small \href{http://twitter.com/justnoticed}
-
 %---Education
 \vspace{-2em}
 \section{Education and Training}
-\tllabelcventry{2009}{2012}{\hspace{-1.5em}2012-2013}{Postdoctoral Fellow}{}{}{}{Department of Psychological \& Brain Sciences, Dartmouth College\newline Adviser: \href{mailto:James.V.Haxby@dartmouth.edu}{Dr. James V. Haxby}}
-\tllabelcventry{2004}{2009}{\hspace{-1em}2004-2009}{Ph.D. in Computer Science}{}{}{}{Computer Science Department, NJIT (NJ Institute of Technology)\newline Adviser: \href{mailto:jose@rubic.rutgers.edu}{Dr. Stephen J. Hanson}, Rutgers-Newark}
-\tllabelcventry{2000}{2003}{\hspace{-1.5em}2000-2003}{M.S. in Computer Science}{}{}{}{Computer Science Department, UNM (University of New Mexico)\newline Adviser: \href{mailto:barak@cs.nuim.ie}{Dr. Barak Pearlmutter}}
-\tllabelcventry{1994}{1999}{1999}{M.S. in Laser and Optoelectronic Engineering}{}{}{}{Computer Systems Department, VSTU (Vinnytsia State Technical University), Ukraine}
+%\cventry{2012-2013}{Postdoctoral Fellow}{}{}{}{Department of Psychological \& Brain Sciences, Dartmouth College\newline Adviser: \href{mailto:James.V.Haxby@dartmouth.edu}{Dr. James V. Haxby}}
+\ytllabelcventry{2009}{2012}{-1.5em}{2012--2013}{Postdoctoral Fellow}{}{}{}{Department of Psychological \& Brain Sciences, Dartmouth College\newline Adviser: \href{mailto:James.V.Haxby@dartmouth.edu}{Dr. James V. Haxby}}
+\ytllabelcventry{2004}{2009}{-1em}{2004--2009}{Ph.D. in Computer Science}{}{}{}{Computer Science Department, NJIT (NJ Institute of Technology)\newline Adviser: \href{mailto:jose@rubic.rutgers.edu}{Dr. Stephen J. Hanson}, Rutgers-Newark}
+\ytllabelcventry{2000}{2003}{-1.5em}{2000--2003}{M.S. in Computer Science}{}{}{}{Computer Science Department, UNM (University of New Mexico)\newline Adviser: \href{mailto:barak@cs.nuim.ie}{Dr. Barak Pearlmutter}}
+\ytllabelcventry{1994}{1999}{-0.8em}{1994--1999}{M.S. in Laser and Optoelectronic Engineering}{}{}{}{Computer Systems Department, VSTU (Vinnytsia State Technical University), Ukraine}
 \tldatecventry{1994}{Graduated with honors}{}{}{}{Physics and Mathematical Gymnasia No.17, Ukraine}
 
-% looks like a neat list
-%\cvlistdoubleitem{Mathematical Logic I}{Mathematical Logic II}
-%\cvlistdoubleitem{Modal Logic}{Intensional and Higher-Order Logic}
-%\cvlistdoubleitem{Philosophy of Mathematics}{Early Analytic Philosophy}
-
-%---Employment
-% TODO: add to each role
-%  "Skillset" summarizing the technologies/approaches
-%  "References"
-% Customize item lists to reduce spacing a bit
 \section{Employment}
 
 %\cventry{2013--present}
@@ -176,14 +173,14 @@ left=0.5in, right=0.5in, top=0.5in, bottom=0.7in]{geometry}
 \end{itemize}
 }
 
-\tllabelcventry{2005}{2009}{\hspace{-1.5em}2005-2009}{Computing Cluster System Administrator}{}{}{Rutgers-Newark, NJ}{
+\ytllabelcventry{2005}{2009}{-1.5em}{2005--2009}{Computing Cluster System Administrator}{}{}{Rutgers-Newark, NJ}{
 %  \begin{itemize}
 %  \item 
 Deployment and maintenance of 27 node high availability cluster running GNU/Linux Debian OS
 %  \end{itemize}
 }
 
-\tllabelcventry{2003}{2009}{\hspace{-1.2em}2003-2009}{Research Assistant}{}{}%
+\ytllabelcventry{2003}{2009}{-1.2em}{2003--2009}{Research Assistant}{}{}%
 {\href{http://www.rumba.rutgers.edu}{Mind/Brain RUMBA Laboratory}, Rutgers-Newark, NJ}{
    \begin{itemize}[leftmargin=1em,parsep=0em]
    \item Predictive decoding and fusion of the neural data from and
@@ -194,7 +191,7 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
    \end{itemize}
 }
 
-\tllabelcventry{2000}{2002}{\hspace{-1.5em}2000-2002}{Research Assistant}{}{}
+\ytllabelcventry{2000}{2002}{-1.5em}{2000--2002}{Research Assistant}{}{}
 {\href{http://www-bcl.cs.unm.edu}{Brain and Computation Laboratory}, UNM Albuquerque, NM}{
   %\begin{itemize}
   %\item 
@@ -204,7 +201,7 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
   %\end{itemize}
 }
 
-\tllabelcventry{1996}{1997}{\hspace{-1.5em}1996-1997}{Software Developer}{}{}%
+\ytllabelcventry{1996}{1997}{-1.5em}{1996--1997}{Software Developer}{}{}%
 {%\phttphref{www-bcl.cs.unm.edu}{Brain and Computation Laboratory},
  \href{http://www.webliana.com.ua}{Liana Company}, Vinnytsia, Ukraine}{
 %  \begin{itemize}
@@ -214,7 +211,7 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
 }
 
 
-\tllabelcventry{1993}{1997}{1993--1997}{Research Assistant}{}{}{}%
+\ytllabelcventry{1993}{1997}{0em}{1993--1997}{Research Assistant}{}{}{}%
 {VSTU, Vinnytsia, Ukraine\\
   %\begin{itemize}
   %\item Software developer of the 
@@ -530,7 +527,7 @@ Ukraine Small Academy of Sciences
 \tlcventry{2012}{0}{}{PBS Department, Dartmouth College}{Consulting undergraduate and graduate students in
   application of statistical learning methodologies in their
   neuroimaging-based research}{}{}
-\tllabelcventry{2010}{0}{}{Co-lecturer}{PyMVPA Workshops}{}{}{
+\ytllabelcventry{2010}{0}{0em}{\ifdefined\boringnumbers 2010--current\fi}{Co-lecturer}{PyMVPA Workshops}{}{}{
 2014. Hanse-Wissenschaftskolleg Institute for Advanced Study, Delmenhorst Germany\\
 2012. Center for Behavioral Brain Sciences, Magdeburg Germany \\
 2010. Psychology and Brain Sciences, Dartmouth College, Hanover USA
