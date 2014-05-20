@@ -1,9 +1,11 @@
-proj=resume.ps resume.ps.gz resume.pdf resume.html resume.txt
+proj=halchenko_vita.pdf
+#resume.ps resume.ps.gz resume.pdf resume.html resume.txt
 #resume.djvu
 trash+= $(proj:.ps={.bbl,.blg,.dvi,.idx,.ilg,.ind,.toc,.pdf,.aux,.out,.log})
 
 #stuff to install also
-dist=resume.tex ltoh.pl ltoh.specs res.cls
+dist=halchenko_vita.tex
+#resume.tex ltoh.pl ltoh.specs res.cls
 
 USE_PDFTEX=1
 
@@ -26,6 +28,9 @@ halchenko_vita.pdf: halchenko_vita.bbl Makefile
          -e '/URL.*\(doi\.org\|cell\.com\|pubmed\|frontiersin\|poldracklab\)/d' \
 		 -e 's/URL //g' \
 	     halchenko_vita.bbl || :
+	pdflatex halchenko_vita.tex
+	pdflatex halchenko_vita.tex
+	pdflatex halchenko_vita.tex
 
 %.tex: Makefile
 

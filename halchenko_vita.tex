@@ -20,7 +20,7 @@
 % CV color - options include: 'blue' (default), 'orange', 'green',
 %                             'red', 'purple', 'grey' and 'black'
 \setlength{\hintscolumnwidth}{2.5cm} % Sets the width of the dates column
-%\setlength{\makecvtitlenamewidth}{10cm} 
+%\setlength{\makecvtitlenamewidth}{10cm}
 % For the 'classic' style, adjusts the width of the space allocated to name
 
 \usepackage{moderntimeline}
@@ -40,16 +40,15 @@
 \usepackage{xstring}
 \def\nohttp#1{%
     \StrSubstitute{#1}{http://}{}{}}
-%\newcommand{\pname}[1]{#1}
-%\newcommand{\purl}[2]{\pname{#1}\footnote{\url{#2}}}
-% more definetly to use hyperref -- so just a convenience to avoid
-% swapping #1 and #2 at every occurance;-)
-%\newcommand{\puurl}[2]{\href{#2}{\mbox{#1}}}
-% And this one is the first occurrence ones which we make both a hyperlink and an explicit url
 %\newcommand{\phref}[2]{\href{#2}{#1} (\href{#2}{\nohttp{#2}})}
 \newcommand{\phref}[2]{#2 (\href{#1}{#1})}
 \newcommand{\phttphref}[2]{#2 (\href{http://#1}{#1})}
 \newcommand{\phttp}[1]{\href{http://#1}{#1}}
+
+\newcommand{\ie}[0]{\emph{i.e.},\ }
+\newcommand{\eg}[0]{\emph{e.g.},\ }
+\newcommand{\etc}[0]{\emph{etc.}}
+
 
 
 \usepackage[]{natbib}           % To make workaround work
@@ -108,15 +107,7 @@ left=0.5in, right=0.5in, top=0.5in, bottom=0.7in]{geometry}
 
 % %Stuff for bib
  \makeatletter
-%  \newlength{\bibhang}
   \setlength{\bibhang}{0em}
-%  \newlength{\bibsep}
-%   {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
-%  \newlist{bibsection}{itemize}{3}
-%  \setlist[bibsection]{label=,leftmargin=\bibhang,%
-%          itemindent=-\bibhang,
-%          itemsep=\bibsep,parsep=\z@,partopsep=0pt,
-%          topsep=0pt}
   \newlist{bibenum}{enumerate}{3}
   \setlist[bibenum]{label=[\arabic*],resume,leftmargin={2.8cm},%
           itemindent=-\bibhang,
@@ -128,11 +119,6 @@ left=0.5in, right=0.5in, top=0.5in, bottom=0.7in]{geometry}
   \def\endbibsection{\oldendbibsection\vspace{-.6\baselineskip}}
   \makeatother
 
-\newcommand{\ie}[0]{\emph{i.e.},\ }
-\newcommand{\eg}[0]{\emph{e.g.},\ }
-\newcommand{\etc}[0]{\emph{etc.}}
-
-
 \newcommand{\ytllabelcventry}[9]{\tllabelcventry{#1}{#2}{\hspace{#3}#4}{#5}{#6}{#7}{#8}{#9}}
 
 % if boring numbers is desired
@@ -143,24 +129,30 @@ left=0.5in, right=0.5in, top=0.5in, bottom=0.7in]{geometry}
 \renewcommand{\tlcventry}[7]{\cventry{#1--\ifthenelse{\equal{#2}{0}}{current}{#2}}{#3}{#4}{#5}{#6}{#7}}%
 \fi
 
-% 
+%
 %----------------------------------------------------------------------------------------
 \begin{document}
 \makecvtitle % Print the CV title
 
-%---Education
 \vspace{-2em}
+
 \section{Education and Training}
-%\cventry{2012-2013}{Postdoctoral Fellow}{}{}{}{Department of Psychological \& Brain Sciences, Dartmouth College\newline Adviser: \href{mailto:James.V.Haxby@dartmouth.edu}{Dr. James V. Haxby}}
-\ytllabelcventry{2009}{2012}{-1.5em}{2012--2013}{Postdoctoral Fellow}{}{}{}{Department of Psychological \& Brain Sciences, Dartmouth College\newline Adviser: \href{mailto:James.V.Haxby@dartmouth.edu}{Dr. James V. Haxby}}
-\ytllabelcventry{2004}{2009}{-1em}{2004--2009}{Ph.D. in Computer Science}{}{}{}{Computer Science Department, NJIT (NJ Institute of Technology)\newline Adviser: \href{mailto:jose@rubic.rutgers.edu}{Dr. Stephen J. Hanson}, Rutgers-Newark}
-\ytllabelcventry{2000}{2003}{-1.5em}{2000--2003}{M.S. in Computer Science}{}{}{}{Computer Science Department, UNM (University of New Mexico)\newline Adviser: \href{mailto:barak@cs.nuim.ie}{Dr. Barak Pearlmutter}}
-\ytllabelcventry{1994}{1999}{-0.8em}{1994--1999}{M.S. in Laser and Optoelectronic Engineering}{}{}{}{Computer Systems Department, VSTU (Vinnytsia State Technical University), Ukraine}
-\tldatecventry{1994}{Graduated with honors}{}{}{}{Physics and Mathematical Gymnasia No.17, Ukraine}
+\ytllabelcventry{2009}{2012}{-1.5em}{2012--2013}{Postdoctoral Fellow}{}{}{}{
+  Department of Psychological \& Brain Sciences, Dartmouth College\newline
+  Adviser: \href{mailto:James.V.Haxby@dartmouth.edu}{Dr. James V. Haxby}}
+\ytllabelcventry{2004}{2009}{-1em}{2004--2009}{Ph.D. in Computer Science}{}{}{}{
+  Computer Science Department, NJIT (NJ Institute of Technology)\newline
+  Adviser: \href{mailto:jose@rubic.rutgers.edu}{Dr. Stephen J. Hanson}, Rutgers-Newark}
+\ytllabelcventry{2000}{2003}{-1.5em}{2000--2003}{M.S. in Computer Science}{}{}{}{
+  Computer Science Department, UNM (University of New Mexico)\newline
+  Adviser: \href{mailto:barak@cs.nuim.ie}{Dr. Barak Pearlmutter}}
+\ytllabelcventry{1994}{1999}{-0.8em}{1994--1999}{M.S. in Laser and Optoelectronic Engineering}{}{}{}{
+  Computer Systems Department, VSTU (Vinnytsia State Technical University), Ukraine}
+\tldatecventry{1994}{Graduated with honors}{}{}{}{
+  Physics and Mathematical Gymnasia No.17, Ukraine}
 
 \section{Employment}
 
-%\cventry{2013--present}
 \tlcventry{2013}{0}{Research Scientist}{}{}{Department of Psychological \& Brain Sciences, Dartmouth College}{
 \begin{itemize}[leftmargin=1em,parsep=0em]
 \item Visual perception: effects of familiarity on face identification
@@ -174,10 +166,7 @@ left=0.5in, right=0.5in, top=0.5in, bottom=0.7in]{geometry}
 }
 
 \ytllabelcventry{2005}{2009}{-1.5em}{2005--2009}{Computing Cluster System Administrator}{}{}{Rutgers-Newark, NJ}{
-%  \begin{itemize}
-%  \item 
 Deployment and maintenance of 27 node high availability cluster running GNU/Linux Debian OS
-%  \end{itemize}
 }
 
 \ytllabelcventry{2003}{2009}{-1.2em}{2003--2009}{Research Assistant}{}{}%
@@ -193,31 +182,20 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
 
 \ytllabelcventry{2000}{2002}{-1.5em}{2000--2002}{Research Assistant}{}{}
 {\href{http://www-bcl.cs.unm.edu}{Brain and Computation Laboratory}, UNM Albuquerque, NM}{
-  %\begin{itemize}
-  %\item 
    Implementation and deployment of ICA (Independent Component
    Analysis) techniques for processing of MEG (Magnetoencephalography)
    data as a part of the DreamMon project
-  %\end{itemize}
 }
 
 \ytllabelcventry{1996}{1997}{-1.5em}{1996--1997}{Software Developer}{}{}%
-{%\phttphref{www-bcl.cs.unm.edu}{Brain and Computation Laboratory},
- \href{http://www.webliana.com.ua}{Liana Company}, Vinnytsia, Ukraine}{
-%  \begin{itemize}
-%  \item
+{\href{http://www.webliana.com.ua}{Liana Company}, Vinnytsia, Ukraine}{
  Automated system for Planned-Economic Department of Vinnytsia Chemical Plant (Himprom)
-%  \end{itemize}
 }
-
 
 \ytllabelcventry{1993}{1997}{0em}{1993--1997}{Research Assistant}{}{}{}%
 {VSTU, Vinnytsia, Ukraine\\
-  %\begin{itemize}
-  %\item Software developer of the 
    System for diagnostics of vertebral column. System later was utilized in national hospitals of
-    Ukraine
-%  \end{itemize}
+   Ukraine
 }
 
 \section{Technical Skills}
@@ -288,7 +266,7 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
 }
 
 \tlcventry{2011}{0}{Initiator}{}{\phttphref{github.com/nipy/nipy-artwork}{NiPy Artwork}}{}%
-{%
+{
     Promotional and informative materials for Python-based scientific software
     projects in
     \href{http://www.onerussian.com/tmp/nipy-handout.pdf}{neuroimaging}
@@ -297,18 +275,18 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
 }
 
 \tlcventry{2007}{0}{Founder/Leading Developer}{}{\phttphref{www.pymvpa.org}{PyMVPA}}{}%
-{ A Python framework to streamline application of classical and novel
+{
+  A Python framework to streamline application of classical and novel
   statistical learning methods for the analysis of neural data.
   PyMVPA has a world-wide user base and empowered numerous studies
   (see \phttp{www.pymvpa.org/whoisusingit.html})
 }
 
 \tlcventry{2007}{0}{Founder/Leading Developer}{}{\phttphref{neuro.debian.net}{NeuroDebian}}{}%
-{ %\begin{itemize}[leftmargin=1em,parsep=0em]
+{
   NeuroDebian project builds atop of Debian to provide scientific
   community with a turnkey Free and Open-source Software (FOSS)
-  platform for neuroscience (and beyond) [\ref{HH12},
-  \ref{SFN13}-\ref{INCF11}]
+  platform for neuroscience (and beyond) [\ref{HH12}, \ref{SFN13}-\ref{INCF11}]
   \begin{itemize}[leftmargin=1em,parsep=-0.2em]
     \item Consulting FOSS projects on aspects of legal assurance
       (copyright/licenses), deployment, and quality assurance
@@ -322,7 +300,6 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
 %      deployments on Windows and OSX
     \end{itemize}
     \vspace{-0.5em}
-  %\citep{HH12,SFN13,FLOSS4SCIENCE11,INCF11} for more information.
   \begin{description}[leftmargin=1em,parsep=0em]
   \item[Popularity] Complete number of ``downloads'' or installations of
     NeuroDebian-maintained software is impossible to assess because
@@ -334,34 +311,31 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
     \href{http://neuro.debian.net/popularity.html\#popularity-contest}{voluntary
       ``popularity contest'' submissions}.
     See also \phttphref{neuro.debian.net/testimonials.html}{NeuroDebian users' testimonials}
-%  \item[Activities]\hspace{1em}
   \item[Outreach] Since 2010 hosted booth exhibits at annual meetings of
     Society for Neuroscience and Organization for Human Brain Mapping
   \end{description}
 }
 
-\tlcventry{2005}{0}{Developer}{}{\phttphref{www.debian.org}{Debian Project}}{}{
+\tlcventry{2005}{0}{Developer}{}{\phttphref{www.debian.org}{Debian Project}}{}%
+{
   A widely popular community-driven GNU/Linux distribution with over a hundred of
   derivative distributions and millions of users
 }
 
-\tlcventry{2005}{0}{Leading Developer}{}{\phttphref{www.fail2ban.org}{Fail2Ban Project}}{}{
+\tlcventry{2005}{0}{Leading Developer}{}{\phttphref{www.fail2ban.org}{Fail2Ban Project}}{}%
+{
   A popular intrusion prevention system possibly having millions of users
 }
 
 \tlcventry{2004}{0}{FOSS Contributor}{}{}{}%
-{ I have contributed minor fixes and improvements to nearly a hundred
+{
+  I have contributed minor fixes and improvements to nearly a hundred
   of FOSS projects.  See \phttp{www.ohloh.net/accounts/yarikoptic} for an overview.
 }
 
 
 \vspace{1em}
 
-%\subsection*{EXHIBITING EXPERIENCE}
-%\tlcventry{2010}{0}{}{\href{http://neuro.debian.net}{NeuroDebian}}{}{}{
-%Booth exhibits at Society for Neuroscience and Organization for Human Brain Mapping meetings}{}
-
-%\cvitem{AD-HOC REVIEWER}{}
 \subsection*{EDITING AND REVIEWING}
 \cvitem{Guest Editor}{\href{http://www.frontiersin.org/neuroinformatics/researchtopics/python_in_neuroscience_ii/1591}{Python
     in Neuroscience II} special issue, Frontiers in Neuroscience \& Brain Imaging Methods}
@@ -386,12 +360,14 @@ SPIE
 
 \cvitem{Conference Abstracts}{NIPS, SciPy}
 
+
 \subsection*{MEMBERSHIPS}
 
 \cvitem{Active}{
-  \href{https://www.python.org/psf}{Python Software Foundation}, INCF \href{http://www.incf.org/programs/datasharing/neuroimaging-task-force}{Standards for Data Sharing (Neuroimaging taskforce)}
+  \href{https://www.python.org/psf}{Python Software Foundation},
+  INCF \href{http://www.incf.org/programs/datasharing/neuroimaging-task-force}{Standards for Data Sharing (Neuroimaging taskforce)}
 }
-%\subsection*{PAST AND CURRENT SOCIETY MEMBERSHIPS}
+
 \cvitem{Past}{
 Association for Psychological Science,
 Organization for Human Brain Mapping,
@@ -399,13 +375,7 @@ Society for Neuroscience,
 Ukraine Small Academy of Sciences
 }
 
-%\subsection*{GUEST EDITOR}
-
 \section{Publications}
-
-% TODO: add a reference to Google scholar and state h-index
-%\cvitem{\href{http://scholar.google.com/citations?user=EbtfZcwAAAAJ}{Google
-%    Scholar}}{h-index: 11 \hspace{2em} i10-index: 12}
 
 \bibliographystyle{abbrvnat}    % also puts URLS out
 %\bibliographystyle{apalike}
@@ -417,8 +387,8 @@ Ukraine Small Academy of Sciences
     \nobibliography{haxbylab}
   \endgroup
 
-\subsection{SELECTED PEER-REVIEWED ARTICLES (\href{http://scholar.google.com/citations?user=EbtfZcwAAAAJ}{Google
-    Scholar h-index}: 11)}
+\subsection{SELECTED PEER-REVIEWED ARTICLES
+  (\href{http://scholar.google.com/citations?user=EbtfZcwAAAAJ}{Google Scholar h-index}: 11)}
 
 % useful DOI
 \renewcommand{\doi}[1]{{doi:~\href{http://dx.doi.org/#1}{#1}}}
@@ -429,7 +399,6 @@ Ukraine Small Academy of Sciences
 
 \sloppy
 \begin{bibenum}[ref=\arabic*,parsep=-0.4em]
-%\begin{enumerate}[leftmargin=7em,parsep=0em]
 \item \rbibentry{GGH+13}         % Processing of invisible social cues
 \item \rbibentry{KFR+13}         % Pattern classification precedes ...
 \item \rbibentry{GGH+13b}        % Prioritized Detection of Personally Familiar Faces
@@ -462,7 +431,7 @@ Ukraine Small Academy of Sciences
 \vspace{1em}
 
 %% non-peerreviewed
-%\begin{bibenum}
+%\begin{bibenum}[ref=\arabic*,parsep=-0.4em]
 %\item \rbibentry{HH09}           % Advancing Neuroimaging Research with Predictive ...
 %
 %% posters
@@ -474,6 +443,7 @@ Ukraine Small Academy of Sciences
 %% conference proceedings
 %\item \rbibentry{TMH+11}         % Debian Med: Integrated software environment 
 %\end{bibenum}
+
 
 \subsection{CHAPTERS}
 
@@ -492,7 +462,7 @@ Ukraine Small Academy of Sciences
 \vspace{1em}
 
 
-%---Talks and Symposia
+
 \section{Invited Talks}
 
 % not detailed one
@@ -522,6 +492,7 @@ Ukraine Small Academy of Sciences
 \tldatecventry{2009}{UC Berkeley}{Reliable Decoding of Neural Data}{}{Berkeley, CA}{}
 \cventry{}{University of Hawaii at Manoa}{PyMVPA: Fathom Brain Function through Multivariate Pattern Analysis}{}{Honolulu, HI}{}
 
+
 \section{Didactic Activities} % Teaching \& Lecturing}
 
 \tlcventry{2012}{0}{}{PBS Department, Dartmouth College}{Consulting undergraduate and graduate students in
@@ -533,16 +504,10 @@ Ukraine Small Academy of Sciences
 2010. Psychology and Brain Sciences, Dartmouth College, Hanover USA
 }
 % TODO: TA for Jim's 2013 Fall MVPA class?
-%\tldatecventry{2012}{Co-lecturer}{PyMVPA Workshop}{}{}{Center for Behavioral Brain Sciences, Magdeburg Germany}
-%\tldatecventry{2010}{Co-lecturer}{PyMVPA Workshop}{}{}{Psychology and Brain Sciences, Dartmouth College, Hanover USA}
 \tldatecventry{2000}{Teaching Assistant}{Intermediate Programming
   (CS251)}{}{}{\href{mailto:TODO}{Prof. David Ackley}, Computer Science Department, UNM}
 
 
-% \section{Professional Community Activities}
-% moved to Service and Outreach
-
-%---Awards and fellowships
 \section{Awards, Honors \& Fellowships}
 \tldatecventry{1998}{Fellow}{The International Scientific Fund Representatives in Ukrainian Studentship Award}{}{}{}
 \tldatecventry{1996}{Award}{}{}{The Academy of Sciences of Ukraine}{Project: \emph{Information-Measuring System With Optical Transformation Biomedical Information}}{}
@@ -553,8 +518,6 @@ Ukraine Small Academy of Sciences
 \tldatecventry{1993}{3rd place}{Regional Physics Contest}{}{}{}
 
 
-
-% Outside interests/activities
 \section{Extra Qualifications}
 
 \cvitem{Languages}{Fluent in Russian, Ukrainian and English.}
