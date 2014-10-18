@@ -28,6 +28,7 @@ halchenko_vita.pdf: halchenko_vita.bbl Makefile
          -e '/URL.*\(doi\.org\|cell\.com\|pubmed\|frontiersin\|poldracklab\)/d' \
 		 -e 's/URL //g' \
 	     halchenko_vita.bbl || :
+	sed -i -e ':a;N;$$!ba;s/\(Y.~O. *\n* *Halchenko\)/\\textbf{\1}/g' halchenko_vita.pdf || :
 	pdflatex halchenko_vita.tex
 	pdflatex halchenko_vita.tex
 	pdflatex halchenko_vita.tex
