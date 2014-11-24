@@ -11,6 +11,7 @@
 % paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; 
 % font families: sans or roman
 
+\usepackage[bottom]{footmisc}
 
 %---Configure moderncv style
 \moderncvstyle{classic}
@@ -128,6 +129,8 @@ left=0.5in, right=0.5in, top=0.5in, bottom=0.7in]{geometry}
 \renewcommand{\tldatecventry}[6]{\cventry{#1}{#2}{#3}{#4}{#5}{#6}}%
 \renewcommand{\tlcventry}[7]{\cventry{#1--\ifthenelse{\equal{#2}{0}}{current}{#2}}{#3}{#4}{#5}{#6}{#7}}%
 \fi
+
+\newcommand{\gschttp}[1]{\href{http://scholar.google.com/citations?user=EbtfZcwAAAAJ}{#1}}%
 
 %
 %----------------------------------------------------------------------------------------
@@ -288,8 +291,11 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
 {
   A Python framework to streamline application of classical and novel
   statistical learning methods for the analysis of neural data.
-  PyMVPA has a world-wide user base and empowered numerous studies
-  (see \phttp{www.pymvpa.org/whoisusingit.html})
+  \vspace{-0.5em}
+  \begin{description}[leftmargin=1em,parsep=0em]
+  \item[Popularity] PyMVPA has a world-wide user base and empowered numerous studies\\
+    (see \phttp{www.pymvpa.org/whoisusingit.html})
+  \end{description}
 }
 
 \tlcventry{2007}{0}{Founder/Leading Developer}{}{\phttphref{neuro.debian.net}{NeuroDebian}}{}%
@@ -401,8 +407,9 @@ Ukraine Small Academy of Sciences
     \nobibliography{haxbylab}
   \endgroup
 
+
 \subsection{SELECTED PEER-REVIEWED ARTICLES
-  (\href{http://scholar.google.com/citations?user=EbtfZcwAAAAJ}{Google Scholar h-index}: 11)}
+  (Google Scholar h-index: \gschttp{12}, i10-index: \gschttp{14})}
 
 % useful DOI
 \renewcommand{\doi}[1]{{doi:~\href{http://dx.doi.org/#1}{#1}}}
@@ -419,6 +426,12 @@ Ukraine Small Academy of Sciences
 \item \rbibentry{GGH+13b}        % Prioritized Detection of Personally Familiar Faces
 \item \rbibentry{CGG+12}         % Representation of biological classes in the human brain
 \item \rbibentry{HH12}           % Open is not enough. ...
+%\footnotemark
+\end{bibenum}
+
+\let\thefootnote\relax\footnote{\hspace{-2em}\noindent$^\dagger$ authors have contributed equally to the article}
+
+\begin{bibenum}[ref=\arabic*,parsep=-0.4em]
 \item \rbibentry{PBG+12}         % Data sharing in neuroimaging research
 \item \rbibentry{GBM+11}         % Nipype: a flexible, lightweight  ...
 \item \rbibentry{HH11}           % Neuroscience runs on GNU/Linux
@@ -431,11 +444,14 @@ Ukraine Small Academy of Sciences
 \item \rbibentry{HH08}           % Brain reading using full brain support vector machines  ...
 \item \rbibentry{HHH+07}         % Bottom-up and top-down brain functional ...
 \item \rbibentry{HRH+07}         % Dense mode clustering in brain maps
-%\item \rbibentry{TKG+00}         % Method for image coordinate definition on extended laser paths
-%\item \rbibentry{TKG+99}         % Approach to parallel-hierarchical network ...
+\item \rbibentry{TKG+00}         % Method for image coordinate definition on extended laser paths
+\item \rbibentry{TKG+99}         % Approach to parallel-hierarchical network ...
 %\item \rbibentry{TSM+98}         % Image Segmentation on the basis of spatial connected features
 %\item \rbibentry{MKH97}          % The model of associative processor for numerical data sorting
 \end{bibenum}
+
+
+
 \vspace{1em}
 
 \subsection{PH.D. THESIS}
@@ -539,6 +555,7 @@ Ukraine Small Academy of Sciences
 \cvitem{Languages}{Fluent in Russian, Ukrainian and English.}
 \cvitem{Hobbies}{Major contributor to the
   \href{http://neuro.debian.net/coffeeart.html}{Coffee Art Collection}}
+
 
 \end{document}
 
