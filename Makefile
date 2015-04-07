@@ -4,7 +4,7 @@ proj=halchenko_vita.pdf
 trash+= $(proj:.ps={.bbl,.blg,.dvi,.idx,.ilg,.ind,.toc,.pdf,.aux,.out,.log})
 
 #stuff to install also
-dist=halchenko_vita.tex
+dist=halchenko_vita.tex Makefile
 #resume.tex ltoh.pl ltoh.specs res.cls
 
 USE_PDFTEX=1
@@ -51,7 +51,8 @@ halchenko_vita.pdf: halchenko_vita.bbl Makefile
 
 .PHONY: install
 install: $(proj)
-	scp $(proj) $(dist) www.onerussian.com:www/resume
+	chmod a+r $(proj) $(dist)
+	scp -p $(proj) $(dist) www.onerussian.com:www/resume
 
 clean::
 	rm -f *.u.{html,tex}
