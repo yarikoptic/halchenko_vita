@@ -44,6 +44,17 @@
 %\newcommand{\phref}[2]{\href{#2}{#1} (\href{#2}{\nohttp{#2}})}
 \newcommand{\phref}[2]{#2 (\href{#1}{#1})}
 \newcommand{\phttphref}[2]{#2 (\href{http://#1}{#1})}
+
+\newcommand{\datasharing}{\color{red}{[Data Sharing]}}
+\newcommand{\datasharinghref}[1]{\href{#1}{\datasharing}}
+
+\newcommand{\open}[1]{{\color{orange}{[#1]}}}
+\newcommand{\openaccess}{\includegraphics[width=0.5em]{pics/Open_Access_logo_PLoS_white.pdf}}
+\newcommand{\openaccesshref}[1]{\href{#1}{\openaccess}}
+\newcommand{\openaccessdoi}[1]{\openaccesshref{http://dx.doi.org/#1}}
+\newcommand{\preprint}[1]{\href{http://dx.doi.org/#1}{\open{Preprint}}}
+\newcommand{\osphttphref}[2]{#2 (\href{http://#1}{#1}) {\open{Open Science}}}
+\newcommand{\ophttphref}[2]{#2 (\href{http://#1}{#1})  {\open{Open Source Software}}}
 \newcommand{\phttp}[1]{\href{http://#1}{#1}}
 
 \newcommand{\ie}[0]{\emph{i.e.},\ }
@@ -67,7 +78,7 @@
     \ifthenelse{\equal{#4}{}}{}{\ifthenelse{\equal{#3}{}}{}{,} {\slshape#4}}%
     \ifthenelse{\equal{#5}{}}{}{, #5}%
     \ifthenelse{\equal{#6}{}}{}{, #6}%
-    \ifthenelse{\equal{#4#5#6}{}}{}{.\strut}%
+    \ifthenelse{\equal{#4#5#6}{}}{}{\strut}%
     \ifx&#7&%
       \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
 
@@ -158,8 +169,11 @@ left=0.5in, right=0.5in, top=0.5in, bottom=0.7in]{geometry}
 \section{Employment}
 
 \tlcventry{2016}{0}{Research Assistant
-  Professor}{}{}{\href{http://www.dartmouth.edu/~pbs}{Department of Psychological
-    \& Brain Sciences}, \href{http://www.dartmouth.edu/~ccn}{Center for Cognitive Neuroscience}, Dartmouth College}{
+  Professor}{}{}{
+  \href{http://www.dartmouth.edu/~pbs}{Department of Psychological \& Brain Sciences},
+  \href{http://www.dartmouth.edu/~ccn}{Center for Cognitive Neuroscience},
+  \href{http://dbic.dartmouth.edu}{Dartmouth Brain Imaging Center},
+  Dartmouth College}{
 \begin{itemize}[leftmargin=1em,parsep=0em]
 \item Research projects in visual perception
 \item Software framework for statistical analysis of neural data:
@@ -226,7 +240,7 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
 \begin{itemize}[leftmargin=1em,parsep=0em]
 \item More than 15 years of experience with software
   development under GNU/Linux OS:  Python, shell
-  scripting, version control systems (CVS, subversion, git,
+  scripting, Version Control Systems (CVS, subversion, git,
   git-annex), debugging (gdb, pdb, bashdb, ddd), troubleshooting
   (valgrind, strace), profiling, \emph{etc.}
 \item Years of use and contributions to a wide-range of Python
@@ -235,7 +249,7 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
   scientific Python libraries
 \item Experience with generic build frameworks (make, cmake),
   continuous integration platforms (\emph{e.g.} buildbot,
-  \href{http://travis-ci.org}{Travis})
+  \href{http://travis-ci.org}{Travis-CI},   \href{https://www.appveyor.com/}{AppVeyor})
 \item Varying programming experience in other functional (ELisp,
   Standard ML) and imperative (C/\Cplusplus(g++), Java, JavaScript,
   Perl, PHP) languages, and computational environments (Matlab/Octave)
@@ -285,35 +299,37 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
 
 \subsection*{SERVICE \& OUTREACH}
 
-\tlcventry{2016}{0}{Participant}{}{\href{https://neurographics.net/2016/07/28/oden-2016}{Open
-    Data Ecosystem for Neuroscience (ODEN 2016) workshop}}{}%
+\tlcventry{2017}{0}{Co-organizer}{}{\osphttphref{dartmouthbrainhack.github.io}{Brainhack Global 2017@Dartmouth}}{}%
+{  }
+
+\tlcventry{2016}{0}{Participant}{}{\osphttphref{neurographics.net/2016/07/28/oden-2016}{Open Data Ecosystem for Neuroscience (ODEN 2016) workshop}}{}%
 {  }
 
 \tlcventry{2016}{0}{Participant}{}{\href{https://github.com/BANDA-connect/NDA-sprint}{NIH Data Archive workshop}}{}%
 {  }
 
 \tlcventry{2015}{0}{Founding
-  Director}{}{\phttphref{centerforopenneuroscience.org}{Center
+  Director}{}{\osphttphref{centerforopenneuroscience.org}{Center
     for Open Neuroscience}}{}%
 { Center to facilitate cooperation and dissemination among open
   software frameworks, platforms, data and methodologies in
   neuroscience and beyond }
 
-\tlcventry{2015}{0}{Founder/Leading Developer}{}{\phttphref{github.com/duecredit/duecredit}{DueCredit}}{}%
+\tlcventry{2015}{0}{Founder/Leading Developer}{}{\ophttphref{github.com/duecredit/duecredit}{DueCredit}}{}%
 {
     DueCredit aims to address the problem of inadequate citations of methods and
     software implementations.  This project was initiated in
     collaboration with Matteo Visconti during OHBM 2015 hackathon
 }
 
-\tlcventry{2015}{0}{Founder/Lead}{}{\phttphref{open-brain-consent.readthedocs.org}{Open Brain Consent}}{}%
+\tlcventry{2015}{0}{Founder/Lead}{}{\ophttphref{open-brain-consent.readthedocs.org}{Open Brain Consent}}{}%
 {
   To streamline data-sharing in neuroimaging this project approaches
   the problem of frequently absent or inadequate provisioning of data
   sharing in existing human research participant consent forms
 }
 
-\tlcventry{2013}{0}{Contributor}{}{\phttphref{nipy.bic.berkeley.edu}{Nibotmi}}{}%
+\tlcventry{2013}{0}{Contributor}{}{\osphttphref{nipy.bic.berkeley.edu}{Nibotmi}}{}%
 {
   Continuous integration (CI) service initiated by Matthew Brett (UC
   Berkeley) to solidify quality assurance of scientific Python
@@ -321,7 +337,15 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
   projects (\eg\ sklearn, pandas) with accent on testing on exotic
   hardware platforms such as UltraSPARC}
 
-\tlcventry{2013}{0}{Founder/Leading Developer}{}{\phttphref{yarikoptic.github.io/numpy-vbench}{NumPy Benchmarking}}{}%
+\tlcventry{2013}{0}{Founder/Leading Developer}{}{\ophttphref{datalad.org}{DataLad}\datasharinghref{http://datasets.datalad.org}}{}%
+{
+  Federated de-centralized version controlled automatically crawled data distribution
+  \begin{itemize}[leftmargin=1em,parsep=-0.2em]
+    \item Offers unified interface to access over 7TB scientific data from various sources
+  \end{itemize}
+}
+
+\tlcventry{2013}{0}{Founder/Leading Developer}{}{\osphttphref{yarikoptic.github.io/numpy-vbench}{NumPy Benchmarking}}{}%
 {
     \href{http://numpy.org}{NumPy} is the core computational library used by Python community.
     I have established a service continuously benchmarking NumPy
@@ -329,7 +353,7 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
     absent performance regressions
 }
 
-\tlcventry{2011}{0}{Initiator}{}{\phttphref{github.com/nipy/nipy-artwork}{NiPy Artwork}}{}%
+\tlcventry{2011}{0}{Initiator}{}{\osphttphref{github.com/nipy/nipy-artwork}{NiPy Artwork}}{}%
 {
     Promotional and informative materials for Python-based scientific software
     projects in
@@ -338,7 +362,7 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
     \href{http://www.onerussian.com/tmp/eppy-handout.pdf}{electrophysiology}%
 }
 
-\tlcventry{2007}{0}{Founder/Leading Developer}{}{\phttphref{www.pymvpa.org}{PyMVPA}}{}%
+\tlcventry{2007}{0}{Founder/Leading Developer}{}{\ophttphref{www.pymvpa.org}{PyMVPA}\datasharinghref{http://data.pymvpa.org}}{}%
 {
   A Python framework to streamline application of classical and novel
   statistical learning methods for the analysis of neural data.  This
@@ -350,7 +374,7 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
   \end{description}
 }
 
-\tlcventry{2007}{0}{Founder/Leading Developer}{}{\phttphref{neuro.debian.net}{NeuroDebian}}{}%
+\tlcventry{2007}{0}{Founder/Leading Developer}{}{\ophttphref{neuro.debian.net}{NeuroDebian}\datasharinghref{http://neuro.debian.net/pkglists/toc_pkgs_for_release_data.html}}{}%
 {
   NeuroDebian project builds atop of Debian to provide scientific
   community with a turnkey Free and Open-source Software (FOSS)
@@ -384,13 +408,13 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
   \end{description}
 }
 
-\tlcventry{2005}{0}{Developer}{}{\phttphref{www.debian.org}{Debian Project}}{}%
+\tlcventry{2005}{0}{Developer}{}{\ophttphref{www.debian.org}{Debian Project}}{}%
 {
   A widely popular community-driven GNU/Linux distribution with over a hundred of
   derivative distributions and millions of users
 }
 
-\tlcventry{2005}{0}{Leading Developer}{}{\phttphref{www.fail2ban.org}{Fail2Ban Project}}{}%
+\tlcventry{2005}{0}{Leading Developer}{}{\ophttphref{www.fail2ban.org}{Fail2Ban Project}}{}%
 {
   A popular intrusion prevention system possibly having millions of users
 }
@@ -405,13 +429,14 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
 \vspace{1em}
 
 \subsection*{EDITING AND REVIEWING}
-\cvitem{Associate editor}{\href{http://www.frontiersin.org/brain_imaging_methods}{Frontiers in Brain Imaging Methods}}
+\cvitem{Associate editor}{\href{http://www.frontiersin.org/brain_imaging_methods}{Frontiers
+    in Brain Imaging Methods \openaccess}}
 
 \cvitem{Guest Editor}{\href{http://www.frontiersin.org/neuroinformatics/researchtopics/python_in_neuroscience_ii/1591}{Python
-    in Neuroscience II} special issue, Frontiers in Neuroscience \& Brain Imaging Methods}
+    in Neuroscience II} special issue, Frontiers in Neuroscience \&  Brain Imaging Methods  \openaccess}
 
 %\subsection*{REVIEW EDITOR}
-\cvitem{Review editor}{\href{http://www.frontiersin.org/neuroinformatics}{Frontiers in Neuroinformatics}}
+\cvitem{Review editor}{\href{http://www.frontiersin.org/neuroinformatics}{Frontiers in Neuroinformatics}  \openaccess}
 
 \cvitem{Ad-hoc reviewer for journals}{
 Brain Structure and Function,
@@ -447,7 +472,7 @@ Society for Neuroscience,
 Ukraine Small Academy of Sciences
 }
 
-\section{Publications   (Google Scholar h-index: \gschttp{15}, i10-index: \gschttp{19})}
+\section{Publications   (Google Scholar h-index: \gschttp{17}, i10-index: \gschttp{22})}
 
 \bibliographystyle{abbrvnat}    % also puts URLS out
 %\bibliographystyle{apalike}
@@ -468,43 +493,59 @@ Ukraine Small Academy of Sciences
                                 % reference them. natbib doesn't know
                                 % the order for some reason
 
-\subsection{WORK IN PROGRESS PREPRINTS}
+\subsection{WORK IN PROGRESS {\color{orange}{PREPRINTS}}}
 
 \sloppy
 \begin{bibenum}[ref=\arabic*,parsep=-0.4em]
-\item \rbibentry{NCO+biorxiv16}          % Attention decoding
-\item \rbibentry{EMH+biorxiv16}          % Code sharing practices
+\item \rbibentry{NCO+biorxiv16} \openaccess  % Attention decoding
+\item \rbibentry{EMH+biorxiv16}  \openaccess % Code sharing practices
 % \item \rbibentry{GAC+biorxiv16}          % BIDS
 \end{bibenum}
 \vspace{1em}
 
-\subsection{SELECTED PEER-REVIEWED ARTICLES}
+\subsection{POST-PUBLICATION PEER-REVIEWED ARTICLES}
+\sloppy
+\begin{bibenum}[ref=\arabic*,parsep=-0.4em]
+\item \rbibentry{GPK+17} \openaccessdoi{10.12688/f1000research.10783.1}  %  A very simple, re-executable neuroimaging publication
+\end{bibenum}
+\vspace{1em}
+
+\subsection{EDITORIALS}
+\sloppy
+\begin{bibenum}[ref=\arabic*,parsep=-0.4em]
+\item \rbibentry{HH_ed15} \openaccessdoi{10.12688/f1000research.6229.1}  % A communication hub for a decentralized collaboration on studying real-life cognition
+\end{bibenum}
+\vspace{1em}
+
+\subsection{SELECTED PRE-PUBLICATION PEER-REVIEWED ARTICLES}
 
 \sloppy
 \begin{bibenum}[ref=\arabic*,parsep=-0.4em]
-\item \rbibentry{GAC+16}         % BIDS
-\item \rbibentry{GHH+16}         % Full brain hyper
-\item \rbibentry{HH15}           % Open by design
+\item \rbibentry{CSG+16} \openaccessdoi{10.1523/JNEUROSCI.3395-15.2016}  % How the Human Brain Represents Perceived Dangerousness
+\item \rbibentry{GAC+16} \openaccessdoi{10.1038/sdata.2016.44} \preprint{10.1101/034561} % BIDS
+\item \rbibentry{GHH+16} \openaccessdoi{10.1093/cercor/bhw068}        % Full brain hyper
+\item \rbibentry{Vogel+2016} \openaccessdoi{10.1016/j.neuron.2016.10.033}  % To the Cloud! A Grassroots Proposal to Accelerate Brain Science Discovery
+\item \rbibentry{HH15}   \openaccessdoi{10.1186/s13742-015-0072-7}    % Open by design
 \item \rbibentry{SHA+15}         % Animacy continuum
-\item \rbibentry{GGH+13}         % Processing of invisible social cues
+\item \rbibentry{GGH+13} \openaccessdoi{10.1016/j.concog.2013.05.002} % Processing of invisible social cues
 \item \rbibentry{KFR+13}         % Pattern classification precedes ...
-\item \rbibentry{GGH+13b}        % Prioritized Detection of Personally Familiar Faces
-\item \rbibentry{CGG+12}         % Representation of biological classes in the human brain
-\item \rbibentry{HH12}           % Open is not enough. ...
+\item \rbibentry{GGH+13b} \openaccessdoi{10.1371/journal.pone.0066620} % Prioritized Detection of Personally Familiar Faces
+\item \rbibentry{CGG+12}  \openaccessdoi{10.1523/JNEUROSCI.5547-11.2012} % Representation of biological classes in the human brain
+\item \rbibentry{HH12} \openaccessdoi{10.3389/fninf.2012.00022} % Open is not enough. ...
 %\footnotemark
 \end{bibenum}
 
 \let\thefootnote\relax\footnote{\hspace{-2em}\noindent$^\dagger$ authors have contributed equally to the article}
 
 \begin{bibenum}[ref=\arabic*,parsep=-0.4em]
-\item \rbibentry{PBG+12}         % Data sharing in neuroimaging research
-\item \rbibentry{GBM+11}         % Nipype: a flexible, lightweight  ...
-\item \rbibentry{HH11}           % Neuroscience runs on GNU/Linux
-\item \rbibentry{HGC+11}         % A Common, High-Dimensional Model ...
-\item \rbibentry{HHH+10}         % Statistical learning analysis in neuroscience: aiming for transparency
+\item \rbibentry{PBG+12} \openaccessdoi{10.3389/fninf.2012.00009}  % Data sharing in neuroimaging research
+\item \rbibentry{GBM+11} \openaccessdoi{10.3389/fninf.2011.00013} % Nipype: a flexible, lightweight  ...
+\item \rbibentry{HH11} \openaccessdoi{10.3389/fninf.2011.00008} % Neuroscience runs on GNU/Linux
+\item \rbibentry{HGC+11} \openaccessdoi{10.1016/j.neuron.2011.08.026} % A Common, High-Dimensional Model ...
+\item \rbibentry{HHH+10} \openaccessdoi{10.3389/neuro.01.007.2010} % Statistical learning analysis in neuroscience: aiming for transparency
 \item \rbibentry{RHH+10}         % Six problems for causal inference from fMRI
 \item \rbibentry{HHS+09a}        % PyMVPA: A Python toolbox for multivariate pattern analysis of fMRI data
-\item \rbibentry{HHS+09b}        % PyMVPA: A Unifying Approach to the Analysis of Neuroscientific Data
+\item \rbibentry{HHS+09b} \openaccessdoi{10.3389/neuro.11.003.2009} % PyMVPA: A Unifying Approach to the Analysis of Neuroscientific Data
 \item \rbibentry{PHH09}          % Decoding the Large-Scale Structure of Brain Function ...
 \item \rbibentry{HH08}           % Brain reading using full brain support vector machines  ...
 \item \rbibentry{HHH+07}         % Bottom-up and top-down brain functional ...
@@ -523,7 +564,7 @@ Ukraine Small Academy of Sciences
 \subsection{PH.D. THESIS}
 
 \begin{bibenum}[ref=\arabic*,parsep=-0.4em]
-\item \rbibentry{Hal09}          % Predictive Decoding of Neural Data
+\item \rbibentry{Hal09} \openaccesshref{http://www.onerussian.com/Sci/thesis} % Predictive Decoding of Neural Data
 \end{bibenum}
 \vspace{1em}
 
@@ -545,7 +586,7 @@ Ukraine Small Academy of Sciences
 \subsection{CHAPTERS}
 
 \begin{bibenum}[ref=\arabic*,parsep=-0.4em]
-\item \rbibentry{HHP05}          % Advanced Image Processing in Magnetic Resonance Imaging: ...
+\item \rbibentry{HHP05} \openaccesshref{http://www.onerussian.com/Sci/fusion} % Advanced Image Processing in Magnetic Resonance Imaging: ...
 \end{bibenum}
 \vspace{1em}
 
@@ -579,6 +620,8 @@ Ukraine Small Academy of Sciences
 
 %\tldatecventry{2015}{OHBM 2015}{Overview of statistical evaluation techniques adopted by publicly available MVPA toolboxes}{}{Honolulu, HI USA}{}
 %\tldatecventry{2014}{PyCon 2014}{Fail2Ban -- keep your boxes skiddie-free}{}{Montr\'eal, Canada}{}
+\tldatecventry{2016}{MRN}{The road to open neuroscience: from analysis methods to software platforms}{}{Albuquerque, NM}{}
+
 \tldatecventry{2014}{SRI International}{From statistical learning to an open-source, turnkey platform for neuroimaging}{}{Menlo Park, CA}{}
 \tldatecventry{2013}{SEA Software Engineering Conference}{Open is not enough: benefits from Debian as an integrated, community-driven computing platform}{}{UCAR,Boulder, CO}{\phttp{sea.ucar.edu/event/open-not-enough-benefits-debian-integrated-community-driven-computing-platform}}
 \cventry{}{University of Pennsylvania}{Environments for efficient contemporary research in neuroimaging}{}{Philadelphia, PA}{}
