@@ -25,7 +25,7 @@
 % For the 'classic' style, adjusts the width of the space allocated to name
 
 \usepackage{moderntimeline}
-\tlmaxdates{1994}{2018}
+\tlmaxdates{1994}{2019}
 %\tlwidth{0.8ex}
 % Set the labels text size
 %\tltext{\tiny}
@@ -53,8 +53,8 @@
 \newcommand{\openaccesshref}[1]{\href{#1}{\openaccess}}
 \newcommand{\openaccessdoi}[1]{\openaccesshref{http://dx.doi.org/#1}}
 \newcommand{\preprint}[1]{\href{http://dx.doi.org/#1}{\open{Preprint}}}
-\newcommand{\osphttphref}[2]{#2 (\href{http://#1}{#1}) {\open{Open Science}}}
-\newcommand{\ophttphref}[2]{#2 (\href{http://#1}{#1})  {\open{Open Source Software}}}
+\newcommand{\osphttphref}[2]{#2 (\href{http://#1}{#1}) {\href{http://#1}{\open{Open Science}}}}
+\newcommand{\ophttphref}[2]{#2 (\href{http://#1}{#1})  {\href{http://#1}{\open{Open Source Software}}}}
 \newcommand{\phttp}[1]{\href{http://#1}{#1}}
 
 \newcommand{\ie}[0]{\emph{i.e.},\ }
@@ -302,10 +302,10 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
 \tlcventry{2017}{0}{Co-organizer}{}{\osphttphref{dartmouthbrainhack.github.io}{Brainhack Global 2017@Dartmouth}}{}%
 {  }
 
-\tlcventry{2016}{0}{Participant}{}{\osphttphref{neurographics.net/2016/07/28/oden-2016}{Open Data Ecosystem for Neuroscience (ODEN 2016) workshop}}{}%
+\tlcventry{2016}{0}{Participant}{}{\osphttphref{neurographics.net/2016/07/28/oden-2016}{Open Data Ecosystem for Neuroscience (ODEN 2016) workshop} \datasharing}{}%
 {  }
 
-\tlcventry{2016}{0}{Participant}{}{\href{https://github.com/BANDA-connect/NDA-sprint}{NIH Data Archive workshop}}{}%
+\tlcventry{2016}{0}{Participant}{}{\href{https://github.com/BANDA-connect/NDA-sprint}{NIH Data Archive workshop} \datasharing}{}%
 {  }
 
 \tlcventry{2015}{0}{Founding
@@ -322,7 +322,7 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
     collaboration with Matteo Visconti during OHBM 2015 hackathon
 }
 
-\tlcventry{2015}{0}{Founder/Lead}{}{\ophttphref{open-brain-consent.readthedocs.org}{Open Brain Consent}}{}%
+\tlcventry{2015}{0}{Founder/Lead}{}{\phttphref{open-brain-consent.readthedocs.org}{Open Brain Consent} {\datasharing}}{}%
 {
   To streamline data-sharing in neuroimaging this project approaches
   the problem of frequently absent or inadequate provisioning of data
@@ -345,21 +345,19 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
   \end{itemize}
 }
 
-\tlcventry{2013}{0}{Founder/Leading Developer}{}{\osphttphref{yarikoptic.github.io/numpy-vbench}{NumPy Benchmarking}}{}%
+\tlcventry{2013}{2015}{Founder/Leading Developer}{}{\phttphref{yarikoptic.github.io/numpy-vbench}{NumPy Benchmarking}}{}%
 {
     \href{http://numpy.org}{NumPy} is the core computational library used by Python community.
     I have established a service continuously benchmarking NumPy
     functionality across different development branches to guarantee
-    absent performance regressions
+    absent performance regressions. Superseded by \href{https://github.com/numpy/numpy/tree/master/benchmarks}{official ASV benchmarks}
 }
 
-\tlcventry{2011}{0}{Initiator}{}{\osphttphref{github.com/nipy/nipy-artwork}{NiPy Artwork}}{}%
+\tlcventry{2011}{0}{Initiator/Moderator}{}{\osphttphref{github.com/nipy/nipy-artwork}{NiPy Artwork}}{}%
 {
     Promotional and informative materials for Python-based scientific software
-    projects in
-    \href{http://www.onerussian.com/tmp/nipy-handout.pdf}{neuroimaging}
-    and
-    \href{http://www.onerussian.com/tmp/eppy-handout.pdf}{electrophysiology}%
+    projects in \href{http://centerforopenneuroscience.org/engage}{neuroimaging
+    and electrophysiology}%
 }
 
 \tlcventry{2007}{0}{Founder/Leading Developer}{}{\ophttphref{www.pymvpa.org}{PyMVPA}\datasharinghref{http://data.pymvpa.org}}{}%
@@ -399,7 +397,7 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
     distribution and thus made available from any of its more than 130
     derivative distributions (such as Ubuntu).  Main NeuroDebian website
     is accessed by more than 13,000 unique IPs each month, is mirrored
-    by 8 contributors world-wide, and receives more than 800 of periodic
+    by 8 contributors world-wide, and receives over 900 of periodic
     \href{http://neuro.debian.net/popularity.html\#popularity-contest}{voluntary
       ``popularity contest'' submissions}.
     See also \phttphref{neuro.debian.net/testimonials.html}{NeuroDebian users' testimonials}
@@ -414,15 +412,15 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
   derivative distributions and millions of users
 }
 
-\tlcventry{2005}{0}{Leading Developer}{}{\ophttphref{www.fail2ban.org}{Fail2Ban Project}}{}%
+\tlcventry{2005}{0}{Leading Developer/Maintainer}{}{\ophttphref{www.fail2ban.org}{Fail2Ban Project}}{}%
 {
-  A popular intrusion prevention system possibly having millions of users
+  A popular intrusion prevention system possibly having \textbf{millions} of users
 }
 
-\tlcventry{2004}{0}{FOSS Contributor}{}{}{}%
+\tlcventry{2004}{0}{FOSS Contributor}{}{\open{Open Source Software}}{}%
 {
   I have contributed minor fixes and improvements to nearly a hundred
-  of FOSS projects.  See \phttp{www.ohloh.net/accounts/yarikoptic} for an overview
+  of FOSS projects.  Visit \phttp{www.ohloh.net/accounts/yarikoptic} and \phttp{https://github.com/yarikoptic} for an overview
 }
 
 
