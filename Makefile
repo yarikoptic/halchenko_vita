@@ -24,6 +24,7 @@ halchenko_vita.pdf: halchenko_vita.bbl Makefile
       sed -i \
          -e '/URL *$$/{N;s,\n,,g}' \
 		 -e '/{\(HH1[12]\|HHS+09b\|HHH+10\)}$$/{n;s/\(Hanke\|Halchenko\)/\1$$^\\dagger$$/g;}' \
+		 -e '/{\(VHG+biorxiv17\)}$$/{n;s/\(Castello}\|Halchenko\)/\1$$^\\dagger$$/g;}' \
          -e 's/\(Y.~O. Halchenko\)/\\textbf{\1}/g'  \
          -e '/ ISSN /d' \
          -e '/URL.*\(doi\.org\|cell\.com\|pubmed\|frontiersin\|poldracklab\)/d' \

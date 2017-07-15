@@ -105,11 +105,14 @@ left=0.5in, right=0.5in, top=0.5in, bottom=0.7in]{geometry}
 \phone{(603) 646-9834}
 \fax{(603) 398-1138}
 \email{career@onerussian.com}
-\homepage{haxbylab.dartmouth.edu/ppl/yarik.html}%{haxbylab.dartmouth.edu/ppl/yarik.html} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
+\social[twitter]{yarikoptic}
+\social[github]{yarikoptic}
+\social[linkedin]{yarik}
+\homepage{centerforopenneuroscience.org} %haxbylab.dartmouth.edu/ppl/yarik.html}%{haxbylab.dartmouth.edu/ppl/yarik.html} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
 \extrainfo{
-  \hurl{www.linkedin.com/in/yarik}
+%  \hurl{http://centerforopenneuroscience.org}
   \hurl{orcid.org/0000-0003-3456-2493}
-  \hurl{github.com/yarikoptic}
+%  \hurl{github.com/yarikoptic}
 %  \hurl{ohloh.net/accounts/yarikoptic}
  }
 % \hurl{plus.google.com/+YaroslavHalchenko}}
@@ -175,8 +178,8 @@ left=0.5in, right=0.5in, top=0.5in, bottom=0.7in]{geometry}
   \href{http://dbic.dartmouth.edu}{Dartmouth Brain Imaging Center},
   Dartmouth College}{
 \begin{itemize}[leftmargin=1em,parsep=0em]
-\item Research projects in visual perception
-\item Software framework for statistical analysis of neural data:
+\item Research projects in vision.
+\item Methodological and software developments for statistical analysis of neural data:
   \phttphref{pymvpa.org}{PyMVPA} [\ref{HHS+09a}, \ref{HHS+09b}]
 \item Turnkey software platform for neuroscience: \phttphref{neuro.debian.net}{NeuroDebian} [\ref{HH12}]
 \item Federated data distribution: \phttphref{datalad.org}{DataLad}
@@ -341,7 +344,7 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
 {
   Federated de-centralized version controlled automatically crawled data distribution
   \begin{itemize}[leftmargin=1em,parsep=-0.2em]
-    \item Offers unified interface to access over 7TB scientific data from various sources
+    \item Offers unified interface to access over 10TB scientific data from various sources
   \end{itemize}
 }
 
@@ -396,7 +399,7 @@ Deployment and maintenance of 27 node high availability cluster running GNU/Linu
     majority of packages is also uploaded to official Debian
     distribution and thus made available from any of its more than 130
     derivative distributions (such as Ubuntu).  Main NeuroDebian website
-    is accessed by more than 13,000 unique IPs each month, is mirrored
+    is accessed by more than 20,000 unique IPs each month, is mirrored
     by 8 contributors world-wide, and receives over 900 of periodic
     \href{http://neuro.debian.net/popularity.html\#popularity-contest}{voluntary
       ``popularity contest'' submissions}.
@@ -460,17 +463,17 @@ SPIE
   \href{http://www.incf.org/programs/datasharing/neuroimaging-task-force}{INCF
     Standards for Data Sharing (Neuroimaging taskforce)},
   \href{http://www.numfocus.org}{NumFOCUS Foundation},
-  \href{https://www.python.org/psf}{Python Software Foundation}
+  \href{https://www.python.org/psf}{Python Software Foundation},
+  \href{https://www.humanbrainmapping.org}{Organization for Human Brain Mapping}
 }
 
 \cvitem{Past}{
 Association for Psychological Science,
-Organization for Human Brain Mapping,
 Society for Neuroscience,
 Ukraine Small Academy of Sciences
 }
 
-\section{Publications   (Google Scholar h-index: \gschttp{17}, i10-index: \gschttp{22})}
+\section{Publications   (Google Scholar h-index: \gschttp{18}, i10-index: \gschttp{22})}
 
 \bibliographystyle{abbrvnat}    % also puts URLS out
 %\bibliographystyle{apalike}
@@ -495,18 +498,21 @@ Ukraine Small Academy of Sciences
 
 \sloppy
 \begin{bibenum}[ref=\arabic*,parsep=-0.4em]
-\item \rbibentry{NCO+biorxiv16} \openaccess  % Attention decoding
-\item \rbibentry{EMH+biorxiv16}  \openaccess % Code sharing practices
+\item \rbibentry{VHG+biorxiv17} \openaccess  % Fam faces
+
+% Published
+% \item \rbibentry{NCO+biorxiv16} \openaccess  % Attention decoding
+% \item \rbibentry{EMH+biorxiv16} \openaccess % Code sharing practices
 % \item \rbibentry{GAC+biorxiv16}          % BIDS
 \end{bibenum}
-\vspace{1em}
+\vspace{2em}
 
 \subsection{POST-PUBLICATION PEER-REVIEWED ARTICLES}
 \sloppy
 \begin{bibenum}[ref=\arabic*,parsep=-0.4em]
 \item \rbibentry{GPK+17} \openaccessdoi{10.12688/f1000research.10783.1}  %  A very simple, re-executable neuroimaging publication
 \end{bibenum}
-\vspace{1em}
+\vspace{2em}
 
 \subsection{EDITORIALS}
 \sloppy
@@ -515,10 +521,14 @@ Ukraine Small Academy of Sciences
 \end{bibenum}
 \vspace{1em}
 
+\let\thefootnote\relax\footnote{\hspace{-2em}\noindent$^\dagger$ authors have contributed equally to the article}
+
 \subsection{SELECTED PRE-PUBLICATION PEER-REVIEWED ARTICLES}
 
 \sloppy
 \begin{bibenum}[ref=\arabic*,parsep=-0.4em]
+\item \rbibentry{NCO+17} \openaccessdoi{10.1093/cercor/bhx138} \preprint{10.1101/045252} % Attention selectively reshapes the geometry of distributed semantic ...
+\item \rbibentry{EMH+17} \openaccessdoi{10.1038/nn.4550}  \preprint{10.1101/045104} % Toward standard practices for sharing computer code and programs ...
 \item \rbibentry{CSG+16} \openaccessdoi{10.1523/JNEUROSCI.3395-15.2016}  % How the Human Brain Represents Perceived Dangerousness
 \item \rbibentry{GAC+16} \openaccessdoi{10.1038/sdata.2016.44} \preprint{10.1101/034561} % BIDS
 \item \rbibentry{GHH+16} \openaccessdoi{10.1093/cercor/bhw068}        % Full brain hyper
@@ -557,14 +567,14 @@ Ukraine Small Academy of Sciences
 
 
 
-\vspace{1em}
+\vspace{2em}
 
 \subsection{PH.D. THESIS}
 
 \begin{bibenum}[ref=\arabic*,parsep=-0.4em]
 \item \rbibentry{Hal09} \openaccesshref{http://www.onerussian.com/Sci/thesis} % Predictive Decoding of Neural Data
 \end{bibenum}
-\vspace{1em}
+\vspace{2em}
 
 %% non-peerreviewed
 %\begin{bibenum}[ref=\arabic*,parsep=-0.4em]
@@ -586,7 +596,7 @@ Ukraine Small Academy of Sciences
 \begin{bibenum}[ref=\arabic*,parsep=-0.4em]
 \item \rbibentry{HHP05} \openaccesshref{http://www.onerussian.com/Sci/fusion} % Advanced Image Processing in Magnetic Resonance Imaging: ...
 \end{bibenum}
-\vspace{1em}
+\vspace{2em}
 
 \subsection{INTERVIEWS}
 \sloppy
@@ -639,8 +649,9 @@ Ukraine Small Academy of Sciences
   application of statistical learning methodologies in their
   neuroimaging-based research}{}{}
 \ytllabelcventry{2015}{0}{0em}{\ifdefined\boringnumbers
-  2015--current\fi}{Mentoring Students}{}{}{}{
-2015. Ana Marina Jimenez Santiago, Mexico 
+  2015--current\fi}{Mentoring Student Interns}{}{}{}{
+  2017. Oliver Contier, Germany\\
+  2015. Ana Marina Jimenez Santiago, Mexico
 }
 \ytllabelcventry{2010}{0}{0em}{\ifdefined\boringnumbers 2010--current\fi}{Co-lecturer}{PyMVPA Workshops}{}{}{
 2015. PBS Department, Dartmouth College, NH USA\\
